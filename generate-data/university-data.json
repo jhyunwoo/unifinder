@@ -1,0 +1,1681 @@
+[
+  {
+    "name": "가야대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 1,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가천대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 2,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 3,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭꽃동네대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 4,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 5,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 6,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭대학교[제3캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 7,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "감리교신학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 8,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "강서대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 9,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "강원대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 10,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "강원대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 11,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "건국대학교(글로컬)",
+    "address": null,
+    "universityType": "branch",
+    "educationType": "university",
+    "id": 12,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "건국대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 13,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "건양대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 14,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "건양대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 15,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경기대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 16,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경기대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 17,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경남대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 18,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경동대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 19,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경동대학교[제3캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 20,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경동대학교[제4캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 21,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경북대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 22,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경상국립대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 23,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경성대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 24,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경운대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 25,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경인교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 26,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경일대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 27,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "경희대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 28,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "계명대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 29,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "고려대학교(세종)",
+    "universityType": "branch",
+    "educationType": "university",
+    "id": 30,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "고려대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 31,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "고신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 32,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "공주교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 33,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "광신대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 34,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "광운대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 35,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "광주가톨릭대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 36,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "광주교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 37,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "광주대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 38,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "광주여자대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 39,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립강릉원주대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 40,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립강릉원주대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 41,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립공주대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 42,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립군산대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 43,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립금오공과대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 44,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립목포대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 45,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립목포해양대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 46,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립부경대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 47,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립순천대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 48,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립안동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 49,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립창원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 50,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립한국교통대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 51,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립한국해양대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 52,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국립한밭대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 53,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "국민대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 54,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "극동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 55,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "금강대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 56,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "김천대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 57,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "나사렛대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 58,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "남부대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 59,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "남서울대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 60,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "단국대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 61,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "단국대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 62,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대구가톨릭대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 63,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대구교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 64,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대구대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 65,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대구예술대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 66,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대구한의대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 67,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 68,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대전가톨릭대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 69,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대전대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 70,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대전신학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 71,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "대진대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 72,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "덕성여자대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 73,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동국대학교(WISE)",
+    "universityType": "branch",
+    "educationType": "university",
+    "id": 74,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동국대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 75,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동덕여자대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 76,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동명대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 77,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동서대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 78,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 79,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동아대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 80,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동양대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 81,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "동의대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 82,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "루터대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 83,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "명지대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 84,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "명지대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 85,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "목원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 86,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "목포가톨릭대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 87,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "배재대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 88,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "백석대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 89,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "부산가톨릭대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 90,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "부산교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 91,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "부산대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 92,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "부산외국어대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 93,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "부산장신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 94,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "삼육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 95,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "상명대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 96,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "상명대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 97,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "상지대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 98,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서강대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 99,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서경대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 100,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울과학기술대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 101,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 102,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울기독대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 103,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 104,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울시립대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 105,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울신학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 106,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울여자대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 107,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울장신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 108,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서울한영대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 109,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "서원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 110,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "선문대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 111,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "성결대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 112,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "성공회대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 113,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "성균관대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 114,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "성신여자대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 115,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "세명대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 116,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "세종대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 117,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "세한대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 118,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "송원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 119,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "수원가톨릭대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 120,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "수원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 121,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "숙명여자대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 122,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "순천향대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 123,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "숭실대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 124,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "신경주대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 125,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "신라대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 126,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "신한대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 127,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "신한대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 128,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "아신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 129,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "아주대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 130,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "안양대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 131,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "안양대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 132,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "연세대학교(미래)",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 133,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "연세대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 134,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "영남대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 135,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "영남신학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 136,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "영산대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 137,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "영산대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 138,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "영산선학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 139,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "예수대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 140,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "예원예술대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 141,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "예원예술대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 142,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "용인대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 143,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "우석대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 144,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "우송대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 145,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "울산대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 146,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "원광대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 147,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "위덕대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 148,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "유원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 149,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "을지대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 150,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "을지대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 151,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "을지대학교[제3캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 152,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "이화여자대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 153,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "인제대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 154,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "인천가톨릭대학교[본교]",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 155,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "인천가톨릭대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 156,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "인천대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 157,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "인하대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 158,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "장로회신학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 159,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "전남대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 160,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "전남대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 161,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "전북대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 162,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "전주교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 163,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "전주대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 164,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "제주국제대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 165,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "제주대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 166,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "조선대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 167,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "중부대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 168,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "중앙대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 169,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "중앙대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 170,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "중앙승가대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 171,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "중원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 172,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "진주교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 173,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "차의과학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 174,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "창신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 175,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "청운대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 176,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "청주교육대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 177,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "청주대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 178,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "초당대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 179,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "총신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 180,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "추계예술대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 181,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "춘천교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 182,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "충남대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 183,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "충북대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 184,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "칼빈대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 185,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "평택대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 186,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "포항공과대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 187,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한경국립대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 188,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국공학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 189,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국교원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 190,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국기술교육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 191,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국성서대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 192,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국외국어대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 193,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국체육대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 194,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국침례신학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 195,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국항공대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 196,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한남대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 197,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 198,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한라대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 199,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한림대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 200,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한서대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 201,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한성대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 202,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한세대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 203,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 204,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한양대학교(ERICA)",
+    "universityType": "branch",
+    "educationType": "university",
+    "id": 205,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한양대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 206,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한일장신대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 207,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "협성대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 208,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "호남대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 209,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "호남신학대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 210,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "호서대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 211,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "호원대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 212,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "홍익대학교[본교]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 213,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "홍익대학교[제2캠퍼스]",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 214,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 215,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 216,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "연세대학교",
+    "address": null,
+    "universityType": "main",
+    "educationType": "university",
+    "id": 217,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가야대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 218,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 219,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 220,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 221,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 222,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 223,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 224,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "화성의과학대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 225,
+    "admissionType": "in-group"
+  },
+  {
+    "name": "한국전통문화대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 226,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "육군사관학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 227,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "해군사관학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 228,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "공군사관학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 229,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "국군간호사관학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 230,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "경찰대학",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 231,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "한국예술종합학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 232,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "한국과학기술원(KAIST)",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 233,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "광주과학기술원(GIST)",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 234,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "울산과학기술원(UNIST)",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 235,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "대구경북과학기술원(DGIST)",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 236,
+    "admissionType": "out-group"
+  },
+  {
+    "name": "한국에너지공과대학교",
+    "universityType": "main",
+    "educationType": "university",
+    "id": 237,
+    "admissionType": "out-group"
+  }
+]
