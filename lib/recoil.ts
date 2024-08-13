@@ -1,8 +1,8 @@
 import { atom } from 'recoil'
-import type {
+import {
   EvaluationMethodType,
   GraduationYearType,
-  HighSchoolType,
+  HighSchoolType, RequirementType,
 } from './types'
 
 const universityNameState = atom<string>({
@@ -10,7 +10,7 @@ const universityNameState = atom<string>({
   default: '',
 })
 
-const deparmtnetNameState = atom<string>({
+const departmentNameState = atom<string>({
   key: 'departmentNameState',
   default: '',
 })
@@ -45,13 +45,19 @@ const loadingState = atom<boolean>({
   default: false,
 })
 
+const requirementState = atom<RequirementType[]>({
+  key:"requirementState",
+  default:[]
+})
+
 export {
   universityNameState,
-  deparmtnetNameState,
+  departmentNameState,
   evaluationMethodState,
   highSchoolTypeState,
   admissionYearState,
   graduationYearState,
   academicRequirementState,
   loadingState,
+  requirementState
 }

@@ -1,22 +1,22 @@
-'use client'
+"use client";
 
-import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { useSetRecoilState } from 'recoil'
-import useSWR from 'swr'
-import getAdmissionSearchParams from '@/lib/get-search-params'
-import type { SearchType } from '@/lib/types'
-import SearchBar from '@/components/search-bar'
-import { loadingState } from '@/lib/recoil'
-import EvaluationMethodTag from '@/components/evaluation-method-tag'
-import fetcher from '@/lib/fetcher'
-import BackPageButton from '@/components/back-page-button'
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useSetRecoilState } from "recoil";
+import useSWR from "swr";
+import getAdmissionSearchParams from "@/lib/get-search-params";
+import type { SearchType } from "@/lib/types";
+import SearchBar from "@/components/search-bar";
+import { loadingState } from "@/lib/recoil";
+import EvaluationMethodTag from "@/components/evaluation-method-tag";
+import fetcher from "@/lib/fetcher";
+import BackPageButton from "@/components/back-page-button";
 
 export default function SearchPage() {
-  const searchParams = useSearchParams()
-  const setLoading = useSetRecoilState(loadingState)
+  const searchParams = useSearchParams();
+  const setLoading = useSetRecoilState(loadingState);
   const {
     university,
     department,
@@ -25,16 +25,17 @@ export default function SearchPage() {
     admissionYear,
     graduationYear,
     academicRequirement,
-  } = getAdmissionSearchParams(searchParams)
+    requirement,
+  } = getAdmissionSearchParams(searchParams);
 
   const { data, isLoading } = useSWR<SearchType[]>(
-    `/api/search?university=${university}&department=${department}&evaluationMethod=${JSON.stringify(evaluationMethod)}&highSchoolType=${highSchoolType}&admissionYear=${admissionYear}&graduationYear=${graduationYear}&academicRequirement=${JSON.stringify(academicRequirement)}`,
-    fetcher
-  )
+    `/api/search?university=${university}&department=${department}&evaluationMethod=${JSON.stringify(evaluationMethod)}&highSchoolType=${highSchoolType}&admissionYear=${admissionYear}&graduationYear=${graduationYear}&academicRequirement=${JSON.stringify(academicRequirement)}&requirement=${JSON.stringify(requirement)}`,
+    fetcher,
+  );
 
   useEffect(() => {
-    setLoading(isLoading)
-  }, [isLoading, setLoading])
+    setLoading(isLoading);
+  }, [isLoading, setLoading]);
 
   return (
     <div className="flex w-full flex-col gap-2">
@@ -42,7 +43,7 @@ export default function SearchPage() {
       <SearchBar />
 
       <div className="ml-auto">
-        {isLoading ? '검색중...' : `검색 결과: ${data?.length}개의 전형`}
+        {isLoading ? "검색중..." : `검색 결과: ${data?.length}개의 전형`}
       </div>
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
         {data?.map((searchData) => (
@@ -82,13 +83,13 @@ export default function SearchPage() {
               />
               <div>모집인원: {searchData.admissionQuota}명</div>
               <div>
-                최저:{' '}
-                {searchData.minimumAcademicRequirement !== null ? 'O' : 'X'}
+                최저:{" "}
+                {searchData.minimumAcademicRequirement !== null ? "O" : "X"}
               </div>
             </div>
           </Link>
         ))}
       </div>
     </div>
-  )
+  );
 }
