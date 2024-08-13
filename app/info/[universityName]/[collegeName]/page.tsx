@@ -1,11 +1,11 @@
-import { and, eq } from 'drizzle-orm'
-import type { Metadata } from 'next'
-import db from '@/db'
-import { colleges, departments, universities } from '@/db/schema'
-import InfoItem from '@/components/info-item'
-import InfoListHolder from '@/components/info-list-holder'
-import BackPageButton from '@/components/back-page-button'
-import InfoTitle from '@/components/info-title'
+import { and, eq } from "drizzle-orm";
+import type { Metadata } from "next";
+import db from "@/db";
+import { colleges, departments, universities } from "@/db/schema";
+import InfoItem from "@/components/info-item";
+import InfoListHolder from "@/components/info-list-holder";
+import BackPageButton from "@/components/back-page-button";
+import InfoTitle from "@/components/info-title";
 
 export async function generateStaticParams() {
   return db
@@ -14,24 +14,24 @@ export async function generateStaticParams() {
       collegeName: colleges.name,
     })
     .from(universities)
-    .leftJoin(colleges, eq(colleges.universityId, universities.id))
+    .leftJoin(colleges, eq(colleges.universityId, universities.id));
 }
 
 export function generateMetadata({
   params,
 }: {
-  params: { universityName: string; collegeName: string }
+  params: { universityName: string; collegeName: string };
 }): Metadata {
   return {
-    title: `내수6 | ${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)}`,
+    title: `유니파인더 | ${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)}`,
     description: `${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)} 정보`,
-  }
+  };
 }
 
 export default async function CollegePage({
   params,
 }: {
-  params: { universityName: string; collegeName: string }
+  params: { universityName: string; collegeName: string };
 }) {
   const departmentData = await db
     .select({
@@ -47,9 +47,9 @@ export default async function CollegePage({
     .where(
       and(
         eq(universities.name, decodeURIComponent(params.universityName)),
-        eq(colleges.name, decodeURIComponent(params.collegeName))
-      )
-    )
+        eq(colleges.name, decodeURIComponent(params.collegeName)),
+      ),
+    );
   return (
     <div className="flex w-full flex-col">
       <BackPageButton
@@ -57,7 +57,7 @@ export default async function CollegePage({
         name={decodeURIComponent(params.universityName)}
       />
       <InfoTitle>
-        {decodeURIComponent(params.universityName)}{' '}
+        {decodeURIComponent(params.universityName)}{" "}
         {decodeURIComponent(params.collegeName)}
       </InfoTitle>
 
@@ -82,5 +82,5 @@ export default async function CollegePage({
         ))}
       </InfoListHolder>
     </div>
-  )
+  );
 }

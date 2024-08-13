@@ -1,16 +1,11 @@
-import { and, eq } from 'drizzle-orm'
-import Image from 'next/image'
-import type { Metadata } from 'next'
-import {
-  admissions,
-  colleges,
-  departments,
-  universities,
-} from '@/db/schema'
-import db from '@/db'
-import getEvaluationMethodName from '@/lib/get-evaluation-method-name'
-import getGraduationYearName from '@/lib/get-graduation-year-name'
-import BackPageButton from '@/components/back-page-button'
+import { and, eq } from "drizzle-orm";
+import Image from "next/image";
+import type { Metadata } from "next";
+import { admissions, colleges, departments, universities } from "@/db/schema";
+import db from "@/db";
+import getEvaluationMethodName from "@/lib/get-evaluation-method-name";
+import getGraduationYearName from "@/lib/get-graduation-year-name";
+import BackPageButton from "@/components/back-page-button";
 
 export async function generateStaticParams() {
   return db
@@ -23,56 +18,56 @@ export async function generateStaticParams() {
     .from(universities)
     .leftJoin(colleges, eq(colleges.universityId, universities.id))
     .leftJoin(departments, eq(departments.collegeId, colleges.id))
-    .leftJoin(admissions, eq(admissions.departmentId, departments.id))
+    .leftJoin(admissions, eq(admissions.departmentId, departments.id));
 }
 
 export function generateMetadata({
   params,
 }: {
   params: {
-    universityName: string
-    collegeName: string
-    departmentName: string
-    admissionName: string
-  }
+    universityName: string;
+    collegeName: string;
+    departmentName: string;
+    admissionName: string;
+  };
 }): Metadata {
   return {
-    title: `내수6 | ${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)} ${decodeURIComponent(params.departmentName)} ${decodeURIComponent(params.admissionName)}`,
-    description: `${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)} ${decodeURIComponent(params.departmentName)} ${decodeURIComponent(params.admissionName)} 정보`,
-  }
+    title: `유니파인더 | ${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)} ${decodeURIComponent(params.departmentName)} ${decodeURIComponent(params.admissionName)}`,
+    description: `${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.departmentName)} ${decodeURIComponent(params.admissionName)} 정보`,
+  };
 }
 
 export default async function AdmissionPage({
   params,
 }: {
   params: {
-    universityName: string
-    collegeName: string
-    departmentName: string
-    admissionName: string
-  }
+    universityName: string;
+    collegeName: string;
+    departmentName: string;
+    admissionName: string;
+  };
 }) {
   const universityData = await db.query.universities.findFirst({
     where: eq(universities.name, decodeURIComponent(params.universityName)),
-  })
+  });
   const collegeData = await db.query.colleges.findFirst({
     where: and(
       eq(colleges.universityId, Number(universityData?.id)),
-      eq(colleges.name, decodeURIComponent(params.collegeName))
+      eq(colleges.name, decodeURIComponent(params.collegeName)),
     ),
-  })
+  });
   const departmentData = await db.query.departments.findFirst({
     where: and(
       eq(departments.collegeId, Number(collegeData?.id)),
-      eq(departments.name, decodeURIComponent(params.departmentName))
+      eq(departments.name, decodeURIComponent(params.departmentName)),
     ),
-  })
+  });
   const admissionData = await db.query.admissions.findFirst({
     where: and(
       eq(admissions.departmentId, Number(departmentData?.id)),
-      eq(admissions.name, decodeURIComponent(params.admissionName))
+      eq(admissions.name, decodeURIComponent(params.admissionName)),
     ),
-  })
+  });
 
   if (universityData && collegeData && departmentData && admissionData) {
     return (
@@ -119,7 +114,7 @@ export default async function AdmissionPage({
             <div>
               {admissionData.admissionTrack
                 ? `${admissionData.admissionTrack}계열`
-                : ''}
+                : ""}
             </div>
             <div className="font-semibold">
               모집인원: {admissionData.admissionQuota}명
@@ -130,7 +125,7 @@ export default async function AdmissionPage({
             <div className="text-lg font-semibold">
               {admissionData.minimumAcademicRequirement
                 ? admissionData.minimumAcademicRequirement
-                : '없음'}
+                : "없음"}
             </div>
           </div>
           <div>
@@ -151,7 +146,7 @@ export default async function AdmissionPage({
           </div>
         </div>
       </div>
-    )
+    );
   }
-  return <div>404 Not Found</div>
+  return <div>404 Not Found</div>;
 }

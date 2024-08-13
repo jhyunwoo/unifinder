@@ -5,7 +5,7 @@ import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type {
   HighSchoolType,
   EvaluationMethodType,
@@ -92,6 +92,8 @@ export default function SearchBar() {
   const [departmentName, setDepartmentName] =
     useRecoilState(departmentNameState);
 
+  const [requirementOn, setRequirementOn] = useState(false);
+
   const loading = useRecoilValue(loadingState);
 
   const router = useRouter();
@@ -115,7 +117,7 @@ export default function SearchBar() {
 
   return (
     <form
-      className="flex w-full flex-col items-center gap-2"
+      className="flex w-full flex-col items-start gap-2"
       onSubmit={handleSubmit(onSubmit)}
     >
       <input
@@ -159,11 +161,20 @@ export default function SearchBar() {
         title="최저학력기준"
         valueList={academicRequirements}
       />
-      <RecoilMultiSelector
-        recoilState={requirementState}
-        title="필요 조건"
-        valueList={requirementList}
-      />
+      <button
+        type={"button"}
+        onClick={() => setRequirementOn(!requirementOn)}
+        className={`${requirementOn ? "bg-sky-500 text-white" : "bg-neutral-200 text-neutral-800 hover:ring-2 ring-neutral-500"} p-2 px-4 rounded-full transition-colors`}
+      >
+        필수 조건이 포함된 전형
+      </button>
+      {requirementOn ? (
+        <RecoilMultiSelector
+          recoilState={requirementState}
+          title="필요 조건"
+          valueList={requirementList}
+        />
+      ) : null}
 
       <button
         className={`flex w-full items-center justify-center gap-1 rounded-full p-2 text-white transition-colors ${loading ? "bg-neutral-500" : "bg-sky-600 hover:bg-sky-500"}`}

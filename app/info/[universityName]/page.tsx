@@ -1,31 +1,31 @@
-import { eq } from 'drizzle-orm'
-import type { Metadata } from 'next'
-import db from '@/db'
-import { colleges, universities } from '@/db/schema'
-import InfoItem from '@/components/info-item'
-import InfoListHolder from '@/components/info-list-holder'
-import BackPageButton from '@/components/back-page-button'
-import InfoTitle from '@/components/info-title'
+import { eq } from "drizzle-orm";
+import type { Metadata } from "next";
+import db from "@/db";
+import { colleges, universities } from "@/db/schema";
+import InfoItem from "@/components/info-item";
+import InfoListHolder from "@/components/info-list-holder";
+import BackPageButton from "@/components/back-page-button";
+import InfoTitle from "@/components/info-title";
 
 export async function generateStaticParams() {
-  return db.select({ universityName: universities.name }).from(universities)
+  return db.select({ universityName: universities.name }).from(universities);
 }
 
 export function generateMetadata({
   params,
 }: {
-  params: { universityName: string }
+  params: { universityName: string };
 }): Metadata {
   return {
-    title: `내수6 | ${decodeURIComponent(params.universityName)}`,
+    title: `유니파인더 | ${decodeURIComponent(params.universityName)}`,
     description: `${decodeURIComponent(params.universityName)} 정보`,
-  }
+  };
 }
 
 export default async function CollegePage({
   params,
 }: {
-  params: { universityName: string }
+  params: { universityName: string };
 }) {
   const collegeData = await db
     .select({
@@ -36,7 +36,7 @@ export default async function CollegePage({
     })
     .from(universities)
     .leftJoin(colleges, eq(colleges.universityId, universities.id))
-    .where(eq(universities.name, decodeURIComponent(params.universityName)))
+    .where(eq(universities.name, decodeURIComponent(params.universityName)));
 
   return (
     <div className="flex flex-col">
@@ -58,5 +58,5 @@ export default async function CollegePage({
         ))}
       </InfoListHolder>
     </div>
-  )
+  );
 }
