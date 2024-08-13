@@ -117,67 +117,76 @@ export default function SearchBar() {
 
   return (
     <form
-      className="flex w-full flex-col items-start gap-2"
+      className="w-full grid grid-cols-1 md:grid-cols-2 items-start gap-2"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <input
-        {...register("university")}
-        className="w-full rounded-full p-2 px-4 text-lg outline-none ring-2 ring-sky-400 transition focus:ring-4 focus:ring-sky-500"
-        placeholder="학교명"
-        type="text"
-      />
-      <input
-        {...register("department")}
-        className="w-full rounded-full p-2 px-4 text-lg outline-none ring-2 ring-sky-400 transition focus:ring-4 focus:ring-sky-500"
-        placeholder="학과명"
-        type="text"
-      />
-
-      <RecoilMultiSelector
-        recoilState={evaluationMethodState}
-        title="평가 방식"
-        valueList={evaluationMethods}
-      />
-      <RecoilSingleSelector
-        recoilState={highSchoolTypeState}
-        title="학교 유형"
-        valueList={highSchoolTypes}
-      />
-      <RecoilSingleSelector
-        gridCols={1}
-        recoilState={admissionYearState}
-        title="입학년도"
-        valueList={admissionYears}
-      />
-      <RecoilSingleSelector
-        gridCols={2}
-        recoilState={graduationYearState}
-        title="고등학교 졸업"
-        valueList={graduationYears}
-      />
-      <RecoilSingleSelector
-        gridCols={2}
-        recoilState={academicRequirementState}
-        title="최저학력기준"
-        valueList={academicRequirements}
-      />
-      <button
-        type={"button"}
-        onClick={() => setRequirementOn(!requirementOn)}
-        className={`${requirementOn ? "bg-sky-500 text-white" : "bg-neutral-200 text-neutral-800 hover:ring-2 ring-neutral-500"} p-2 px-4 rounded-full transition-colors`}
-      >
-        필수 조건이 포함된 전형
-      </button>
-      {requirementOn ? (
+      <div className={"flex gap-2 flex-col"}>
+        <div>
+          <div className="text-lg font-semibold">학교명</div>
+          <input
+            {...register("university")}
+            className="w-full rounded-full p-2 px-4 text-lg outline-none ring-2 ring-sky-400 transition focus:ring-4 focus:ring-sky-500"
+            placeholder="학교명을 입력해주세요."
+            type="text"
+          />
+        </div>
+        <div>
+          <div className="text-lg font-semibold">학과명</div>
+          <input
+            {...register("department")}
+            className="w-full rounded-full p-2 px-4 text-lg outline-none ring-2 ring-sky-400 transition focus:ring-4 focus:ring-sky-500"
+            placeholder="학과명을 입력해주세요."
+            type="text"
+          />
+        </div>
+      </div>
+      <div className={"flex flex-col gap-2"}>
         <RecoilMultiSelector
-          recoilState={requirementState}
-          title="필요 조건"
-          valueList={requirementList}
+          recoilState={evaluationMethodState}
+          title="평가 방식"
+          valueList={evaluationMethods}
         />
-      ) : null}
+        <RecoilSingleSelector
+          recoilState={highSchoolTypeState}
+          title="학교 유형"
+          valueList={highSchoolTypes}
+        />
+        <RecoilSingleSelector
+          gridCols={1}
+          recoilState={admissionYearState}
+          title="입학년도"
+          valueList={admissionYears}
+        />
+        <RecoilSingleSelector
+          gridCols={2}
+          recoilState={graduationYearState}
+          title="고등학교 졸업"
+          valueList={graduationYears}
+        />
+        <RecoilSingleSelector
+          gridCols={2}
+          recoilState={academicRequirementState}
+          title="최저학력기준"
+          valueList={academicRequirements}
+        />
+        <button
+          type={"button"}
+          onClick={() => setRequirementOn(!requirementOn)}
+          className={`${requirementOn ? "bg-sky-500 text-white" : "bg-neutral-200 text-neutral-800 hover:ring-2 ring-neutral-500"} p-2 px-4 rounded-full transition-colors`}
+        >
+          필수 조건이 포함된 전형
+        </button>
+        {requirementOn ? (
+          <RecoilMultiSelector
+            recoilState={requirementState}
+            title="필요 조건"
+            valueList={requirementList}
+          />
+        ) : null}
+      </div>
 
       <button
-        className={`flex w-full items-center justify-center gap-1 rounded-full p-2 text-white transition-colors ${loading ? "bg-neutral-500" : "bg-sky-600 hover:bg-sky-500"}`}
+        className={`flex w-full md:col-span-2 items-center justify-center gap-1 rounded-full p-2 text-white transition-colors ${loading ? "bg-neutral-500" : "bg-sky-600 hover:bg-sky-500"}`}
         disabled={loading}
         type="submit"
       >
