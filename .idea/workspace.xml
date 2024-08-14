@@ -4,15 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="update favicon">
+    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="add og images in university pages">
+      <change afterPath="$PROJECT_DIR$/app/api/university/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/info/NanumSquareOTF_acB.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]/opengraph-image.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/opengraph-image.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/opengraph-image.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/info/[universityName]/opengraph-image.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/unifinder-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/unifinder-symbol.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/korea-symbol.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/korea-symbol.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,7 +60,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jhyunwoo/projects/naesuyug/app/info",
+    "last_opened_file_path": "/Users/jhyunwoo/projects/naesuyug/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,11 +84,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]" />
+      <recent name="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]" />
+      <recent name="$PROJECT_DIR$/app/info/[universityName]/[collegeName]" />
+      <recent name="$PROJECT_DIR$/app/info/[universityName]" />
       <recent name="$PROJECT_DIR$/app/info" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/info" />
       <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/app/info/[universityName]" />
+      <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -94,7 +116,7 @@
       <workItem from="1723531769302" duration="552000" />
       <workItem from="1723543559143" duration="8541000" />
       <workItem from="1723597120129" duration="6221000" />
-      <workItem from="1723611158503" duration="1352000" />
+      <workItem from="1723611158503" duration="5339000" />
     </task>
     <task id="LOCAL-00001" summary="add requirement filter">
       <option name="closed" value="true" />
@@ -136,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723611431789</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add og images">
+      <option name="closed" value="true" />
+      <created>1723612633864</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723612633864</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +178,8 @@
     <MESSAGE value="add naver search advisor verification file" />
     <MESSAGE value="fix sitemap error" />
     <MESSAGE value="update favicon" />
-    <option name="LAST_COMMIT_MESSAGE" value="update favicon" />
+    <MESSAGE value="add og images" />
+    <MESSAGE value="add og images in university pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="add og images in university pages" />
   </component>
 </project>
