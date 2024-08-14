@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="add og images in university pages">
+    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="fix opengraph image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/university/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/university/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]/opengraph-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]/opengraph-image.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/opengraph-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/opengraph-image.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/opengraph-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/opengraph-image.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/info/[universityName]/opengraph-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/[universityName]/opengraph-image.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate-data/top-universities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generate-data/top-universities.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +110,7 @@
       <workItem from="1723531769302" duration="552000" />
       <workItem from="1723543559143" duration="8541000" />
       <workItem from="1723597120129" duration="6221000" />
-      <workItem from="1723611158503" duration="5881000" />
+      <workItem from="1723611158503" duration="6165000" />
     </task>
     <task id="LOCAL-00001" summary="add requirement filter">
       <option name="closed" value="true" />
@@ -167,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723616551237</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix opengraph image">
+      <option name="closed" value="true" />
+      <created>1723617108639</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723617108639</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +190,7 @@
     <MESSAGE value="update favicon" />
     <MESSAGE value="add og images" />
     <MESSAGE value="add og images in university pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="add og images in university pages" />
+    <MESSAGE value="fix opengraph image" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix opengraph image" />
   </component>
 </project>

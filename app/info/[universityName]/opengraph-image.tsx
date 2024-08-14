@@ -34,9 +34,11 @@ export default async function UniversityImage({
           <img
             height="150"
             src={`${process.env.SITE_URL}${universityData.symbolImage}`}
-            alt={params.universityName}
+            alt={decodeURIComponent(params.universityName)}
           />
-          <div tw="text-8xl font-extrabold ml-8">{params.universityName}</div>
+          <div tw="text-8xl font-extrabold ml-8">
+            {decodeURIComponent(params.universityName)}
+          </div>
         </div>
         <div tw={"flex items-center ml-auto px-48 pt-24"}>
           <svg

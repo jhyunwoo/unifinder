@@ -36,14 +36,20 @@ export default async function UniversityImage({
           <img
             height="150"
             src={`${process.env.SITE_URL}${universityData.symbolImage}`}
-            alt={params.universityName}
+            alt={decodeURIComponent(params.universityName)}
           />
           <div tw={"flex flex-col ml-8 items-start"}>
             <div tw={"flex"}>
-              <div tw="text-4xl font-bold">{params.universityName}</div>
-              <div tw="text-4xl font-bold ml-4">{params.collegeName}</div>
+              <div tw="text-4xl font-bold">
+                {decodeURIComponent(params.universityName)}
+              </div>
+              <div tw="text-4xl font-bold ml-4">
+                {decodeURIComponent(params.collegeName)}
+              </div>
             </div>
-            <div tw="text-7xl mt-4 font-extrabold">{params.departmentName}</div>
+            <div tw="text-7xl mt-4 font-extrabold">
+              {decodeURIComponent(params.departmentName)}
+            </div>
           </div>
         </div>
         <div tw={"flex items-center ml-auto px-48 pt-24"}>
