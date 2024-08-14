@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="add icon and apple icon">
+    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="fix style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +110,8 @@
       <workItem from="1723617896737" duration="147000" />
       <workItem from="1723620095517" duration="386000" />
       <workItem from="1723620586918" duration="1375000" />
-      <workItem from="1723630681016" duration="18000" />
+      <workItem from="1723630681016" duration="650000" />
+      <workItem from="1723646779502" duration="1741000" />
     </task>
     <task id="LOCAL-00001" summary="add requirement filter">
       <option name="closed" value="true" />
@@ -218,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723620684408</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix style">
+      <option name="closed" value="true" />
+      <created>1723630706244</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1723630706244</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +244,7 @@
     <MESSAGE value="update packages" />
     <MESSAGE value="add google analytics" />
     <MESSAGE value="add icon and apple icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="add icon and apple icon" />
+    <MESSAGE value="fix style" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix style" />
   </component>
 </project>
