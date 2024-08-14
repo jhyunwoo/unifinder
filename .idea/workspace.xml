@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="add naver search advisor verification file">
+    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="fix sitemap error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/search/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/search/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/sitemap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/sitemap.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/evaluation-method-tag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/evaluation-method-tag.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/recoil-multi-selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/recoil-multi-selector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/recoil-single-selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/recoil-single-selector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/search-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/search-bar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate-data/top-universities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generate-data/top-universities.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,22 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jhyunwoo/projects/naesuyug/app/info",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/jhyunwoo/projects/naesuyug/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jhyunwoo/projects/naesuyug/app/info&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/jhyunwoo/projects/naesuyug/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -102,7 +91,8 @@
       <workItem from="1722826475695" duration="7000" />
       <workItem from="1723531769302" duration="552000" />
       <workItem from="1723543559143" duration="8541000" />
-      <workItem from="1723597120129" duration="6187000" />
+      <workItem from="1723597120129" duration="6221000" />
+      <workItem from="1723611158503" duration="169000" />
     </task>
     <task id="LOCAL-00001" summary="add requirement filter">
       <option name="closed" value="true" />
@@ -128,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723567916860</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix sitemap error">
+      <option name="closed" value="true" />
+      <created>1723603335301</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723603335301</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +136,7 @@
     <MESSAGE value="add requirement filter" />
     <MESSAGE value="add favicon and change project name" />
     <MESSAGE value="add naver search advisor verification file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add naver search advisor verification file" />
+    <MESSAGE value="fix sitemap error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix sitemap error" />
   </component>
 </project>
