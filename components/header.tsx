@@ -7,7 +7,7 @@ export default function Header() {
       <Link className="flex items-center gap-2" href="/">
         <BuildingLibraryIcon className="size-10 text-cyan-800" />
         <div className="text-2xl font-bold">
-          유니파인더 UNIFINDER <span className={"text-sm"}>Beta</span>
+          유니파인더 <span className={"text-sm"}>Beta</span>
         </div>
       </Link>
     </div>
