@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="add favicon and change project name">
+    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="add naver search advisor verification file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/info/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/search/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/search/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sitemap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/sitemap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/evaluation-method-tag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/evaluation-method-tag.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/recoil-multi-selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/recoil-multi-selector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/recoil-single-selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/recoil-single-selector.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/search-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/search-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate-data/top-universities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generate-data/top-universities.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +54,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jhyunwoo/projects/naesuyug/app/info",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,8 +76,12 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/info" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -85,7 +101,8 @@
       <updated>1722826474506</updated>
       <workItem from="1722826475695" duration="7000" />
       <workItem from="1723531769302" duration="552000" />
-      <workItem from="1723543559143" duration="7952000" />
+      <workItem from="1723543559143" duration="8541000" />
+      <workItem from="1723597120129" duration="6187000" />
     </task>
     <task id="LOCAL-00001" summary="add requirement filter">
       <option name="closed" value="true" />
@@ -103,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723567107081</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add naver search advisor verification file">
+      <option name="closed" value="true" />
+      <created>1723567916860</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723567916860</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add requirement filter" />
     <MESSAGE value="add favicon and change project name" />
-    <option name="LAST_COMMIT_MESSAGE" value="add favicon and change project name" />
+    <MESSAGE value="add naver search advisor verification file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add naver search advisor verification file" />
   </component>
 </project>

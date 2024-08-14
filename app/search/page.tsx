@@ -13,6 +13,7 @@ import { loadingState } from "@/lib/recoil";
 import EvaluationMethodTag from "@/components/evaluation-method-tag";
 import fetcher from "@/lib/fetcher";
 import BackPageButton from "@/components/back-page-button";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -45,50 +46,59 @@ export default function SearchPage() {
       <div className="ml-auto">
         {isLoading ? "검색중..." : `검색 결과: ${data?.length}개의 전형`}
       </div>
+
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
-        {data?.map((searchData) => (
-          <Link
-            className="flex items-start justify-between gap-2 rounded-lg bg-white p-2 shadow-lg"
-            href={`/info/${searchData.universityName}/${searchData.collegeName}/${searchData.departmentName}/${searchData.admissionName}`}
-            key={
-              searchData.universityName +
-              searchData.collegeName +
-              searchData.departmentName +
-              searchData.admissionName
-            }
-          >
-            <div className="flex gap-2">
-              {searchData.universitySymbol ? (
-                <Image
-                  alt={searchData.universityName}
-                  height={50}
-                  src={searchData.universitySymbol}
-                  width={50}
-                />
-              ) : (
-                <div />
-              )}
-              <div>
-                <div className="text-lg font-semibold">
-                  {searchData.universityName}
+        <AnimatePresence>
+          {data?.map((searchData) => (
+            <motion.div
+              key={
+                searchData.universityName +
+                searchData.collegeName +
+                searchData.departmentName +
+                searchData.admissionName
+              }
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Link
+                className="flex items-start justify-between gap-2 rounded-lg bg-white p-2 shadow-lg"
+                href={`/info/${searchData.universityName}/${searchData.collegeName}/${searchData.departmentName}/${searchData.admissionName}`}
+              >
+                <div className="flex gap-2">
+                  {searchData.universitySymbol ? (
+                    <Image
+                      alt={searchData.universityName}
+                      height={50}
+                      src={searchData.universitySymbol}
+                      width={50}
+                    />
+                  ) : (
+                    <div />
+                  )}
+                  <div>
+                    <div className="text-lg font-semibold">
+                      {searchData.universityName}
+                    </div>
+                    <div>{searchData.collegeName}</div>
+                    <div>{searchData.departmentName}</div>
+                  </div>
                 </div>
-                <div>{searchData.collegeName}</div>
-                <div>{searchData.departmentName}</div>
-              </div>
-            </div>
-            <div className="flex flex-col items-end text-sm">
-              <EvaluationMethodTag
-                admissionName={searchData.admissionName}
-                evaluationMethod={searchData.evaluationMethod}
-              />
-              <div>모집인원: {searchData.admissionQuota}명</div>
-              <div>
-                최저:{" "}
-                {searchData.minimumAcademicRequirement !== null ? "O" : "X"}
-              </div>
-            </div>
-          </Link>
-        ))}
+                <div className="flex flex-col items-end text-sm">
+                  <EvaluationMethodTag
+                    admissionName={searchData.admissionName}
+                    evaluationMethod={searchData.evaluationMethod}
+                  />
+                  <div>모집인원: {searchData.admissionQuota}명</div>
+                  <div>
+                    최저:{" "}
+                    {searchData.minimumAcademicRequirement !== null ? "O" : "X"}
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );

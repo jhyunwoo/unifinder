@@ -1,17 +1,15 @@
-import { asc } from 'drizzle-orm'
-import db from '@/db'
-import InfoListHolder from '@/components/info-list-holder'
-import InfoItem from '@/components/info-item'
-import { universities } from '@/db/schema'
-import InfoTitle from '@/components/info-title'
-import BackPageButton from '@/components/back-page-button'
-
-// export const dynamic = 'force-dynamic'
+import { asc } from "drizzle-orm";
+import db from "@/db";
+import InfoListHolder from "@/components/info-list-holder";
+import InfoItem from "@/components/info-item";
+import { universities } from "@/db/schema";
+import InfoTitle from "@/components/info-title";
+import BackPageButton from "@/components/back-page-button";
 
 export default async function UniversityPage() {
   const universityData = await db.query.universities.findMany({
     orderBy: [asc(universities.id)],
-  })
+  });
 
   return (
     <div className="flex w-full flex-col">
@@ -33,5 +31,5 @@ export default async function UniversityPage() {
         ))}
       </InfoListHolder>
     </div>
-  )
+  );
 }

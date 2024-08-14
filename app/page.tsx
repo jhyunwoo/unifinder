@@ -1,15 +1,15 @@
-import Link from 'next/link'
+import Link from "next/link";
 import {
   BuildingLibraryIcon,
   MagnifyingGlassIcon,
-} from '@heroicons/react/24/outline'
+} from "@heroicons/react/24/outline";
 
 export default function HomePage() {
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-2 p-4">
       <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row">
         <Link
-          className="flex w-full max-w-lg items-center justify-center gap-2 rounded-full bg-sky-600 p-2 px-4 text-xl font-bold text-white transition hover:bg-sky-500 md:h-40 md:rounded-2xl"
+          className="flex w-full max-w-lg items-center justify-center gap-2 rounded-full bg-cyan-700 p-2 px-4 text-xl font-bold text-white transition hover:bg-cyan-600 md:h-40 md:rounded-2xl"
           href="/search"
         >
           <p>대학 전형 검색</p>
@@ -17,7 +17,7 @@ export default function HomePage() {
         </Link>
 
         <Link
-          className="flex w-full max-w-lg items-center justify-center gap-2 rounded-full bg-green-600 p-2 px-4 text-xl font-bold text-white transition hover:bg-green-500 md:h-40 md:rounded-2xl"
+          className="flex w-full max-w-lg items-center justify-center gap-2 rounded-full bg-cyan-500 p-2 px-4 text-xl font-bold text-white transition hover:bg-cyan-400 md:h-40 md:rounded-2xl"
           href="/info"
         >
           <p>대학별 정보</p>
@@ -30,5 +30,5 @@ export default function HomePage() {
         수시모집요강을 꼭 확인하시길 바랍니다.
       </div>
     </div>
-  )
+  );
 }

@@ -93,7 +93,7 @@ export default async function AdmissionPage({
             <div>{departmentData.name}</div>
             {universityData.admissionGuide ? (
               <a
-                className="rounded-lg bg-sky-500 p-1 px-2 text-center text-sm text-white transition-colors hover:bg-sky-600"
+                className="rounded-lg bg-cyan-600 p-1 px-2 text-center text-sm text-white transition-colors hover:bg-cyan-700"
                 download
                 href={universityData.admissionGuide}
                 rel="noopener"
