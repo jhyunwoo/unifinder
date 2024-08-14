@@ -4,6 +4,7 @@ import type { ReactElement, ReactNode } from "react";
 import Header from "@/components/header";
 import RecoilProvider from "@/components/recoil-provider";
 import Footer from "@/components/footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title:
@@ -22,6 +23,7 @@ export default function RootLayout({
 }>): ReactElement {
   return (
     <html className="bg-neutral-50" lang="ko">
+      <GoogleAnalytics gaId="G-2TS8FF30SS" />
       <body>
         <div className="mx-auto w-full max-w-6xl">
           <Header />
