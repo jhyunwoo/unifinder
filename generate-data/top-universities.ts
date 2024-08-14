@@ -2709,11 +2709,6 @@ export const universityData: UniversityType[] = [
                 admissionQuota: 100,
                 admissionTrack: "국제",
               },
-            ],
-          },
-          {
-            name: "융합인문사회과학부(HASS)",
-            admission: [
               {
                 ...연세대국제해외고,
                 admissionQuota: 30,
@@ -2721,6 +2716,7 @@ export const universityData: UniversityType[] = [
               },
             ],
           },
+
           {
             name: "융합과학공학부(ISE)",
             admission: [
@@ -2729,11 +2725,6 @@ export const universityData: UniversityType[] = [
                 admissionQuota: 40,
                 admissionTrack: "국제",
               },
-            ],
-          },
-          {
-            name: "융합과학공학부(ISE)",
-            admission: [
               {
                 ...연세대국제해외고,
                 admissionQuota: 20,

@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
         address: universities.address,
       })
       .from(universities)
-      .where(eq(universities.name, universityName));
+      .where(eq(universities.name, decodeURIComponent(universityName)));
     return NextResponse.json(universityData[0]);
   } else {
     return NextResponse.json({ error: "universityName is required" });

@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import db from "@/db";
+import { universities } from "@/db/schema";
 
 export const runtime = "edge";
 
