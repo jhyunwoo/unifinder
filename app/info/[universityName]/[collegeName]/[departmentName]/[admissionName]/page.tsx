@@ -123,9 +123,8 @@ export default async function AdmissionPage({
           <div>
             <div className="text-neutral-700">최저학력기준</div>
             <div className="text-lg font-semibold">
-              {admissionData.minimumAcademicRequirement
-                ? admissionData.minimumAcademicRequirement
-                : "없음"}
+              {admissionData.minimumAcademicRequirement?.map((text)=><div key={text}>- {text}</div>)}
+              {admissionData.minimumAcademicRequirement?.length === 0 ? "없음" : ""}
             </div>
           </div>
           <div>
