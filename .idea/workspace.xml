@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="update minimum academic requirement">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/search/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/search/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/search/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/search/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/search-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/search-bar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/0000_naive_red_wolf.sql" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/0000_fearless_chimera.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/0001_military_eternity.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/0002_dusty_talisman.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/0003_chubby_natasha_romanoff.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/meta/0000_snapshot.json" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/meta/0000_snapshot.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/meta/0001_snapshot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/meta/0002_snapshot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/meta/0003_snapshot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/meta/_journal.json" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/meta/_journal.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/relations.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/schema.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate-data/top-universities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generate-data/top-universities.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +116,7 @@
       <workItem from="1723689507110" duration="2293000" />
       <workItem from="1723701232713" duration="1301000" />
       <workItem from="1723725488620" duration="2799000" />
-      <workItem from="1723784717474" duration="12517000" />
+      <workItem from="1723784717474" duration="13169000" />
     </task>
     <task id="LOCAL-00001" summary="add requirement filter">
       <option name="closed" value="true" />
@@ -256,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723689937814</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update minimum academic requirement">
+      <option name="closed" value="true" />
+      <created>1723802570884</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1723802570884</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
