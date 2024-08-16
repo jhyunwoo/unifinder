@@ -44,6 +44,10 @@ const highSchoolTypes: { name: string; value: HighSchoolType }[] = [
   { name: "자율고", value: "autonomous" },
   { name: "검정고시", value: "GED" },
   { name: "해외고", value: "overseas" },
+  {
+    name: "국내 학력인정 외국교육기관",
+    value: "foreignEducationalInstitutionsInKorea",
+  },
   { name: "대안학교", value: "alternative" },
   { name: "영재학교", value: "gifted" },
 ];

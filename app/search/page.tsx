@@ -92,7 +92,10 @@ export default function SearchPage() {
                   <div>모집인원: {searchData.admissionQuota}명</div>
                   <div>
                     최저:{" "}
-                    {searchData.minimumAcademicRequirement !== null ? "O" : "X"}
+                    {searchData.minimumAcademicRequirement &&
+                    searchData.minimumAcademicRequirement?.length > 0
+                      ? "O"
+                      : "X"}
                   </div>
                 </div>
               </Link>

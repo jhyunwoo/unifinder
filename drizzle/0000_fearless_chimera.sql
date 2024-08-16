@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS "admission" (
 	"requirements" jsonb DEFAULT '[]'::jsonb,
 	"departmentId" serial NOT NULL,
 	"cautions" jsonb DEFAULT '[]'::jsonb,
-	"minimumAcademicRequirement" text
+	"minimumAcademicRequirement" jsonb DEFAULT '[]'::jsonb
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "college" (
@@ -77,7 +77,8 @@ CREATE TABLE IF NOT EXISTS "university" (
 	"address" text,
 	"admissionType" "admissionType" DEFAULT 'in-group',
 	"universityType" "universityEnum" DEFAULT 'main',
-	"educationType" "educationEnum" DEFAULT 'university'
+	"educationType" "educationEnum" DEFAULT 'university',
+	"admissionGuide" text
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "user" (

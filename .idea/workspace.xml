@@ -4,10 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="fix style">
+    <list default="true" id="e575bed3-4e9e-4ca2-a68d-cca1f65b0f4f" name="변경" comment="update minimum academic requirement">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/apple-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/apple-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/search/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/search/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/search/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/search/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/search-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/search-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/0000_naive_red_wolf.sql" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/0000_fearless_chimera.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/0001_military_eternity.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/0002_dusty_talisman.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/0003_chubby_natasha_romanoff.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/meta/0000_snapshot.json" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/meta/0000_snapshot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/meta/0001_snapshot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/meta/0002_snapshot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/meta/0003_snapshot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/meta/_journal.json" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/meta/_journal.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/relations.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/schema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate-data/top-universities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generate-data/top-universities.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,23 +64,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jhyunwoo/projects/naesuyug/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/jhyunwoo/projects/naesuyug/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/jhyunwoo/projects/naesuyug/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jhyunwoo/projects/naesuyug/app/info/[universityName]/[collegeName]/[departmentName]/[admissionName]",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/jhyunwoo/projects/naesuyug/node_modules/prettier",
+    "settings.editor.selected.configurable": "Errors",
+    "ts.external.directory.path": "/Users/jhyunwoo/projects/naesuyug/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -115,7 +131,10 @@
       <workItem from="1723630681016" duration="650000" />
       <workItem from="1723646779502" duration="1741000" />
       <workItem from="1723689420530" duration="80000" />
-      <workItem from="1723689507110" duration="405000" />
+      <workItem from="1723689507110" duration="2293000" />
+      <workItem from="1723701232713" duration="1301000" />
+      <workItem from="1723725488620" duration="2799000" />
+      <workItem from="1723784717474" duration="12517000" />
     </task>
     <task id="LOCAL-00001" summary="add requirement filter">
       <option name="closed" value="true" />
@@ -229,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723630706244</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update apple icon">
+      <option name="closed" value="true" />
+      <created>1723689937814</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1723689937814</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +276,8 @@
     <MESSAGE value="add google analytics" />
     <MESSAGE value="add icon and apple icon" />
     <MESSAGE value="fix style" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix style" />
+    <MESSAGE value="update apple icon" />
+    <MESSAGE value="update minimum academic requirement" />
+    <option name="LAST_COMMIT_MESSAGE" value="update minimum academic requirement" />
   </component>
 </project>

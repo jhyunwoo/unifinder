@@ -30,10 +30,22 @@ interface AdmissionType {
   requirements?: RequirementType[];
   cautions?: string[];
   admissionQuota?: number;
-  minimumAcademicRequirement?: string;
+  minimumAcademicRequirement?: string[];
   admissionTrack?: string;
   evaluationMethod: "comprehensive" | "academic" | "essay" | "talent";
 }
+
+const allHighSchools: HighSchoolType[] = [
+  "general",
+  "special_purpose",
+  "vocational",
+  "autonomous",
+  "GED",
+  "overseas",
+  "foreignEducationalInstitutionsInKorea",
+  "alternative",
+  "gifted",
+];
 
 // 서울대 수시 입학전형
 const 서울대지역균형전형: AdmissionType = {
@@ -44,60 +56,33 @@ const 서울대지역균형전형: AdmissionType = {
     "special_purpose",
     "vocational",
     "autonomous",
-    "alternative",
     "gifted",
   ],
   graduationYear: ["2025.02"],
   cautions: [
     "소속 고등학교장의 추천을 받은 2025년 2월 국내 고등학교 졸업예정자(조기졸업예정자 제외)",
+    "고등학교별 추천 인원은 2명 이내임",
   ],
   evaluationMethod: "comprehensive",
 };
 const 서울대학생부종합전형: AdmissionType = {
   name: "학생부종합전형(일반전형)",
   admissionYear: 2025,
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   graduationYear: ["2025.02", "before 2024.08"],
   evaluationMethod: "comprehensive",
 };
 const 서울대실기위주전형: AdmissionType = {
   name: "실기위주전형(일반전형)",
   admissionYear: 2025,
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   graduationYear: ["2025.02", "before 2024.08"],
   evaluationMethod: "talent",
 };
 const 서울대기회균형특별전형: AdmissionType = {
   name: "기회균형특별전형(사회통합)",
   admissionYear: 2025,
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   graduationYear: ["2025.02", "before 2024.08"],
   requirements: [
     "ruralFishing", // 농어촌
@@ -131,8 +116,10 @@ const 연세대학추: AdmissionType = {
   highSchoolType: ["general", "special_purpose", "autonomous"],
   cautions: [
     "소속 고등학교장의 추천을 받은 자만 지원 가능",
+    "고교별 추천가능 인원은 학교별 최대 10명까지 가능",
     "학교폭력예방 및 대책에 관한 법률 제 17조에 따른 처분을 받은 자는 지원 불가",
-    "최소 이수 과목 요건을 충족해야 함",
+    "최소 이수 과목 요건을 충족해야 함 (수시 모집 요강 20쪽 확인)",
+    "조기졸업 예정자 및 상급학교 조기진학 허가자는 지원할 수 없음",
   ],
   evaluationMethod: "academic",
 };
@@ -140,17 +127,9 @@ const 연세대활우: AdmissionType = {
   name: "학생부종합전형[활동우수형]",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
+  cautions: ["조기졸업 예정자 및 상급학교 조기진학 허가자는 지원할 수 없음"],
 };
 const 연세대국제국내고: AdmissionType = {
   name: "학생부종합전형[국제형-국내고]",
@@ -174,30 +153,20 @@ const 연세대국제국내고: AdmissionType = {
 const 연세대국제해외고: AdmissionType = {
   name: "학생부종합전형[국제형-해외고]",
   admissionYear: 2025,
-  highSchoolType: ["overseas", "GED"],
+  highSchoolType: ["overseas", "GED", "foreignEducationalInstitutionsInKorea"],
   graduationYear: ["2025.02", "before 2024.08"],
   cautions: [
     "외국 소재 고등학교 졸업(예정)자는 외국에서 고등학교를 졸업(예정)하고 국내·외에서 12년 학제 이상의 학교 교육과정을 이수한 자를 원칙으로 하며, 해당 국가별 학제 및 학기 등을 고려하여 지원자격을 종합적으로 판단함",
     "특별법에 의한 국제학교 졸업자로서 국내 고등학교 학력 인정을 받은 자",
     "국내 소재 외국교육기관, 외국인학교, 특별법에 의한 국제학교 출신자로서 국내 고등학교 졸업학력 검정고시 합격자",
     "국내 고등학교 졸업학력 검정고시 합격자",
-    "글로벌인재학부는 외국 소재 고등학교 졸업(예정)자에 한하여 지원 가능함",
   ],
   evaluationMethod: "comprehensive",
 };
 const 연세대기회균형: AdmissionType = {
   name: "학생부종합전형[기회균형]",
   admissionYear: 2025,
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   graduationYear: ["2025.02", "before 2024.08"],
   requirements: [
     "ruralFishing", // 농어촌
@@ -210,22 +179,14 @@ const 연세대기회균형: AdmissionType = {
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
     "읍·면 소재 영재학교, 과학고, 외국어고, 국제고, 예술고, 체육고, 특성화고/마이스터고 등에 재학한 사실이 있는 자와 검정고시 합격자는 지원할 수 없음",
+    "원서접수 마감일까지 해당 지원자격을 유지해야 함(단, 농어촌학생의 경우 고교졸업 시까지 해당 자격 유지)",
   ],
   evaluationMethod: "comprehensive",
 };
 const 연세대논술: AdmissionType = {
   name: "논술전형",
   admissionYear: 2025,
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   graduationYear: ["2025.02", "before 2024.08"],
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
@@ -252,16 +213,7 @@ const 연세대특기자국제: AdmissionType = {
 const 연세대특기자체육: AdmissionType = {
   name: "특기자전형[체육인재]",
   admissionYear: 2025,
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   graduationYear: ["2025.02", "before 2024.08"],
   cautions: [
     "지원자격을 충족해야 지원 가능",
@@ -275,19 +227,11 @@ const 연세대특기자체육: AdmissionType = {
 const 연세대특수교육: AdmissionType = {
   name: "고른기회전형(특수교육대상자)",
   admissionYear: 2025,
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   graduationYear: ["2025.02", "before 2024.08"],
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
+    "「장애인복지법」 제32조에 의하여 장애인 등록을 필한 장애정도가 심한 자 또는 「국가유공 자 등 예우 및 지원에 관한 법률」 제4조 등에 의한 상이등급자로 등록(1급부터 6급까지만 인정)되어 있는 자",
   ],
   evaluationMethod: "comprehensive",
 };
@@ -297,7 +241,7 @@ const 고려대학추: AdmissionType = {
   name: "학생부교과(학교장추천전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02"],
-  highSchoolType: ["general", "autonomous"],
+  highSchoolType: ["general", "autonomous", "special_purpose"],
   cautions: [
     "소속 고등학교장의 추천을 받은 자만 지원 가능",
     "학교추천전형, 학업우수전형 간에는 복수지원할 수 없음(2개 전형 중 1개만 선택 가능)",
@@ -309,16 +253,7 @@ const 고려대학우: AdmissionType = {
   name: "학생부종합(학업우수전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
   ],
@@ -328,16 +263,7 @@ const 고려대계적: AdmissionType = {
   name: "학생부종합(계열적합전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
   ],
@@ -347,16 +273,7 @@ const 고려대고른: AdmissionType = {
   name: "학생부종합(고른기회전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   requirements: [
     "ruralFishing",
     "nationalMeritRecipient",
@@ -386,22 +303,14 @@ const 고려대사국: AdmissionType = {
   name: "학생부종합(사이버국방전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   cautions: [
     "군인사법 제 10조(결격사유등)에 저촉되지 않는 만 16세 이상 25세 이하인 자만 지원 가능",
   ],
   admissionQuota: 5,
-  minimumAcademicRequirement:
+  minimumAcademicRequirement: [
     "국어, 수학(미적, 기하, 확통), 영어, 탐구(과탐, 서로 다른 2개 분야 응시, 상위 1과목) 4개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+  ],
   admissionTrack: "자연",
   evaluationMethod: "comprehensive",
 };
@@ -409,16 +318,7 @@ const 고려대논술: AdmissionType = {
   name: "논술(논술전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원 불가",
   ],
@@ -428,16 +328,7 @@ const 고려대특기자: AdmissionType = {
   name: "실기/실적(특기자전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "special_purpose",
-    "vocational",
-    "autonomous",
-    "GED",
-    "overseas",
-    "alternative",
-    "gifted",
-  ],
+  highSchoolType: allHighSchools,
   evaluationMethod: "talent",
 };
 
@@ -453,8 +344,9 @@ const 서강대교과지균: AdmissionType = {
     "마이스터고, 예술고, 체육고 지원 불가",
     "전문계 과정(일반고, 종합고) 지원 물가",
   ],
-  minimumAcademicRequirement:
+  minimumAcademicRequirement: [
     "국어, 수학, 영어, 탐구(1과목), 4개 영역 중 3개 영역 각 3등급 이내, 한국사 4등급 이내",
+  ],
 };
 const 서강대학종일반: AdmissionType = {
   name: "학생부종합 일반",
@@ -541,8 +433,9 @@ const 서강대논술: AdmissionType = {
     "vocational",
   ],
   evaluationMethod: "essay",
-  minimumAcademicRequirement:
+  minimumAcademicRequirement: [
     "국어, 수학, 영어, 탐구(1과목), 4개 영역 중 3개 영역 등급 합 7이내, 한국사 4등급 이내",
+  ],
   cautions: ["상급학교 조기입학 자격 부여자도 지원 능가능"],
 };
 
@@ -567,8 +460,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 28,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대기회균형특별전형, admissionQuota: 14 },
             ],
@@ -612,13 +508,16 @@ export const universityData: UniversityType[] = [
           {
             name: "역사학부",
             admission: [
-              { ...서울대학생부종합전형, admissionQuota: 9 },
               {
                 ...서울대지역균형전형,
                 admissionQuota: 9,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
+              { ...서울대학생부종합전형, admissionQuota: 9 },
             ],
           },
           {
@@ -648,8 +547,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 17,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 25 },
               { ...서울대기회균형특별전형, admissionQuota: 4 },
@@ -661,8 +563,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 7,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 60 },
               { ...서울대기회균형특별전형, admissionQuota: 8 },
@@ -674,8 +579,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 10 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -694,8 +602,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 8 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -707,8 +618,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 9 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -720,8 +634,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 6 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -745,8 +662,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 7,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 16 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -758,8 +679,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 13 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -771,8 +696,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 8,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 20 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -788,8 +717,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 7,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 20 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -801,8 +734,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 7,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 27 },
               { ...서울대기회균형특별전형, admissionQuota: 3 },
@@ -814,8 +751,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 19 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -832,8 +773,16 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 10,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요\n국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                  "-- 위 아래 두 개 조건 중 하나 만족 --",
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 27 },
               { ...서울대기회균형특별전형, admissionQuota: 3 },
@@ -850,8 +799,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 26,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 47 },
               { ...서울대기회균형특별전형, admissionQuota: 7 },
@@ -868,8 +820,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 8,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 26 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -881,8 +837,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 16,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 54 },
               { ...서울대기회균형특별전형, admissionQuota: 6 },
@@ -894,8 +854,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 15,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 37 },
               { ...서울대기회균형특별전형, admissionQuota: 5 },
@@ -907,8 +871,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 11,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 80 },
               { ...서울대기회균형특별전형, admissionQuota: 8 },
@@ -920,8 +888,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 28 },
               { ...서울대기회균형특별전형, admissionQuota: 3 },
@@ -933,8 +905,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 12,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 41 },
               { ...서울대기회균형특별전형, admissionQuota: 4 },
@@ -946,8 +922,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 8,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 25 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -959,8 +939,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 4,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 12 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -972,8 +956,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 15 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -985,8 +973,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 9,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 15 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -998,8 +990,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 22 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1011,8 +1007,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 4,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 18 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1029,8 +1029,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 11,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 15 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1042,8 +1045,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 24 },
               { ...서울대기회균형특별전형, admissionQuota: 3 },
@@ -1055,8 +1062,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 19 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1068,8 +1079,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 16 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1081,8 +1096,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 9,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 15 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1094,8 +1113,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 14 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1107,8 +1130,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 7,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 13 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1120,8 +1147,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 4,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 10 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1151,7 +1182,14 @@ export const universityData: UniversityType[] = [
           {
             name: "디자인과",
             admission: [
-              { ...서울대학생부종합전형, admissionQuota: 7 },
+              {
+                ...서울대학생부종합전형,
+                admissionQuota: 7,
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(사탐, 과탐 중 구분 없이 택 2) 중 3개 영역 등급 합이 7등급 이내",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                ],
+              },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
             ],
           },
@@ -1173,8 +1211,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 9 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1186,8 +1227,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 4,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 12 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1199,8 +1243,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 4,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 10 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1212,8 +1259,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 9 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1225,8 +1275,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 6 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1238,8 +1291,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 6 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1251,8 +1307,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 6 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1264,8 +1323,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 3,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 9 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1277,8 +1339,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 4,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 11 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1290,8 +1356,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 3,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 7 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1303,8 +1373,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 7 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1316,8 +1390,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 7 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1329,8 +1407,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 3,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 9 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1342,10 +1424,23 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 2,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(과탐, 사탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(과탐, 사탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(과탐, 사탐)영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                ],
               },
-              { ...서울대학생부종합전형, admissionQuota: 4 },
+              {
+                ...서울대학생부종합전형,
+                admissionQuota: 4,
+                cautions: [
+                  "지원 가능 종목: 육상(트랙, 필드), 체조, 수영(경영), 테니스, 리듬체조, 배드민턴, 탁구, 태권도, 스키, 빙상, 골프, 유도, 사격, 양궁, 씨름, 농구, 배구, 럭비, 핸드볼, 축구, 야구, 필드하키, 한국무용, 현대부용, 발레",
+                ],
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(사탐, 과탐 중 구분 없이 택 2) 중 3개 영역 등급 합이 7등급 이내",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                ],
+              },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
             ],
           },
@@ -1360,8 +1455,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 8 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1373,8 +1471,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 5,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 10 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1386,8 +1487,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 4,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 12 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1399,8 +1504,16 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 8,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내, 한국사, 제2외국어/한문 응시 필요\n국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(사탐, 과탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(사탐, 과탐)는 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 제2외국어/한문 응시 필요",
+                  "-- 두 개 조건 중 하나 만족 --",
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 12 },
               { ...서울대기회균형특별전형, admissionQuota: 1 },
@@ -1417,8 +1530,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 6,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 17 },
               { ...서울대기회균형특별전형, admissionQuota: 2 },
@@ -1435,8 +1552,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 11,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 29 },
               { ...서울대기회균형특별전형, admissionQuota: 3 },
@@ -1449,29 +1570,67 @@ export const universityData: UniversityType[] = [
         department: [
           {
             name: "성악과",
-            admission: [{ ...서울대기회균형특별전형, admissionQuota: 1 }],
+            admission: [
+              {
+                ...서울대기회균형특별전형,
+                admissionQuota: 1,
+                cautions: ["여자 1명"],
+              },
+            ],
           },
           {
             name: "작곡과",
-            admission: [{ ...서울대기회균형특별전형, admissionQuota: 1 }],
+            admission: [
+              {
+                ...서울대기회균형특별전형,
+                admissionQuota: 1,
+                cautions: ["작곡 1명"],
+              },
+            ],
           },
           {
             name: "피아노과",
             admission: [
-              { ...서울대실기위주전형, admissionQuota: 23 },
-              { ...서울대기회균형특별전형, admissionQuota: 1 },
+              {
+                ...서울대실기위주전형,
+                admissionQuota: 23,
+                cautions: ["피아노 23명"],
+              },
+              {
+                ...서울대기회균형특별전형,
+                admissionQuota: 1,
+                cautions: ["피아노 1명"],
+              },
             ],
           },
           {
             name: "관현악과",
             admission: [
-              { ...서울대실기위주전형, admissionQuota: 47 },
-              { ...서울대기회균형특별전형, admissionQuota: 1 },
+              {
+                ...서울대실기위주전형,
+                admissionQuota: 47,
+                cautions: [
+                  "바이올린 13명, 비올라 4명, 첼로 6명, 콘트라베이스 3명, 하프 1명, 클래식기타 1명, 플루트 2명, 오보에 2명, 클라리넷 2명, 바순 2명, 혼 3명, 트럼펫 2명, 트롬본 2명, 색소폰 1명, 튜바 1명, 타악기 2명",
+                ],
+              },
+              {
+                ...서울대기회균형특별전형,
+                admissionQuota: 1,
+                cautions: ["바이올린 1명"],
+              },
             ],
           },
           {
             name: "국악과",
-            admission: [{ ...서울대실기위주전형, admissionQuota: 28 }],
+            admission: [
+              {
+                ...서울대실기위주전형,
+                admissionQuota: 28,
+                cautions: [
+                  "가야금 5명, 거문고 3명, 해금 3명, 피리 3명, 대금 3명, 아쟁 2명, 타악기 2명, 이론 3명, 작곡 2명, 성악 2명",
+                ],
+              },
+            ],
           },
         ],
       },
@@ -1484,8 +1643,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 39,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영, 물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내",
+                  "물1, 물2, 화1, 화2 중 1개 과목 이상 반드시 응시",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 49 },
               { ...서울대기회균형특별전형, admissionQuota: 7 },
@@ -1502,8 +1665,12 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 30,
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요 / 탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하), 영어, 탐구(과탐 중 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구 영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                  "탐구과목 1 + 2 조합의 경우 다른 과목 분야 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 98 },
               { ...서울대기회균형특별전형, admissionQuota: 20 },
@@ -1520,8 +1687,11 @@ export const universityData: UniversityType[] = [
               {
                 ...서울대지역균형전형,
                 admissionQuota: 20,
-                minimumAcademicRequirement:
-                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(과탐, 사탐 중 구분없이 택2 - 두 과목 평균 반영) 중 3개 영역 등급 합이 7등급 이내 / 국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                minimumAcademicRequirement: [
+                  "국어, 수학(확통, 미적, 기하), 영어, 탐구(과탐, 사탐 중 구분없이 택2) 중 3개 영역 등급 합이 7등급 이내",
+                  "탐구(과탐, 사탐)영역은 두 과목 평균 반영",
+                  "국어, 수학, 영어, 한국사, 탐구 응시 필요",
+                ],
               },
               { ...서울대학생부종합전형, admissionQuota: 48 },
               { ...서울대기회균형특별전형, admissionQuota: 6 },
@@ -1561,15 +1731,18 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 11,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1583,15 +1756,18 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1605,15 +1781,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 13,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 16,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 5, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 5, admissionTrack: "인문" },
@@ -1627,15 +1807,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1649,15 +1833,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1671,15 +1859,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1693,15 +1885,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1715,15 +1911,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1737,15 +1937,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1759,15 +1963,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -1786,15 +1994,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 29,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 33,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 11, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 10, admissionTrack: "인문" },
@@ -1808,15 +2020,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 11,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 4, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 2, admissionTrack: "인문" },
@@ -1835,15 +2051,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 45,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 47,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 18, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 15, admissionTrack: "인문" },
@@ -1862,15 +2082,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 7, admissionTrack: "자연" },
@@ -1884,15 +2108,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 7, admissionTrack: "자연" },
@@ -1906,15 +2134,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 7, admissionTrack: "자연" },
@@ -1928,15 +2160,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 6, admissionTrack: "자연" },
@@ -1950,15 +2186,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 6, admissionTrack: "자연" },
@@ -1972,15 +2212,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 6, admissionTrack: "자연" },
@@ -1999,15 +2243,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 14,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 16,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 6, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 17, admissionTrack: "자연" },
@@ -2021,15 +2269,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 31,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 36,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 12, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 35, admissionTrack: "자연" },
@@ -2043,15 +2295,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 12,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 14,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 6, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 15, admissionTrack: "자연" },
@@ -2065,15 +2321,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 7, admissionTrack: "자연" },
@@ -2087,15 +2347,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 13,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 14,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 5, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 15, admissionTrack: "자연" },
@@ -2109,15 +2373,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 21,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 22,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 8, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 23, admissionTrack: "자연" },
@@ -2131,15 +2399,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 11,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "자연" },
@@ -2153,15 +2425,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 8, admissionTrack: "자연" },
@@ -2175,15 +2451,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 20,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 38,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 5, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 12, admissionTrack: "자연" },
@@ -2196,15 +2476,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 14,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "자연" },
             ],
@@ -2221,15 +2505,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 5, admissionTrack: "자연" },
@@ -2243,15 +2531,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 4,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "자연" },
@@ -2265,15 +2557,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 9,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 4, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 11, admissionTrack: "자연" },
@@ -2292,15 +2588,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 25,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 35,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 13, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 22, admissionTrack: "자연" },
@@ -2314,15 +2614,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대논술, admissionQuota: 5, admissionTrack: "자연" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "자연" },
@@ -2335,15 +2639,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 1, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 5, admissionTrack: "자연" },
@@ -2362,15 +2670,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 10,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 12,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "인문" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "인문" },
@@ -2388,15 +2700,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 14,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 16,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 6, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 6, admissionTrack: "인문" },
@@ -2410,15 +2726,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 14,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 16,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 6, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 6, admissionTrack: "인문" },
@@ -2432,15 +2752,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "인문" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "인문" },
@@ -2453,15 +2777,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 5, admissionTrack: "인문" },
@@ -2475,15 +2803,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 1, admissionTrack: "인문" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "인문" },
@@ -2496,15 +2828,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 5, admissionTrack: "인문" },
@@ -2523,15 +2859,23 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 10,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐)",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "통합" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "통합" },
@@ -2544,15 +2888,23 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내 (과탐), 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 9,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐)",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "통합" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "통합" },
@@ -2565,15 +2917,23 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내 (과탐), 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 9,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐)",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "통합" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "통합" },
@@ -2586,15 +2946,23 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내 (과탐), 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 10,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐)",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "통합" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "통합" },
@@ -2607,15 +2975,23 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내 (과탐), 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 10,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐)",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "통합" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "통합" },
@@ -2633,15 +3009,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 12,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 사회탐구, 과학탐구 중 선택, 탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 4, admissionTrack: "인문" },
               { ...연세대논술, admissionQuota: 4, admissionTrack: "인문" },
@@ -2742,8 +3122,15 @@ export const universityData: UniversityType[] = [
             admission: [
               {
                 ...연세대국제해외고,
+                highSchoolType: ["overseas"],
                 admissionQuota: 11,
                 admissionTrack: "국제",
+                cautions: [
+                  ...(연세대국제해외고.cautions
+                    ? 연세대국제해외고.cautions
+                    : []),
+                  "글로벌인재학부는 외국 소재 고등학교 졸업(예정)자에 한하여 지원 가능함",
+                ],
               },
             ],
           },
@@ -2759,15 +3146,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 15,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상 (과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목 등급 반영",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 45,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상 (과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목 등급 반영",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "자연" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "자연" },
@@ -2785,15 +3176,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상 (과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목 등급 반영",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 12,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상 (과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목 등급 반영",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 2, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 10, admissionTrack: "자연" },
@@ -2812,15 +3207,23 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 10,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내 (사탐/과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내, 영어 3등급 이내 (과탐), 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 24,
                 admissionTrack: "통합",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐) 또는 수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통) 중 1개 과목을 포함하여 2개 과목 등급 합 4 이내(사탐, 과탐)",
+                  "-- 또는 --",
+                  "수학(미적, 기하)을 포함하여 2개 과목 등급 합 5 이내(과탐), 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 3, admissionTrack: "통합" },
               { ...연세대특수교육, admissionQuota: 0, admissionTrack: "통합" },
@@ -2838,15 +3241,19 @@ export const universityData: UniversityType[] = [
                 ...연세대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상 (과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상, 영어 3등급 이내, 한국사 4등급 이내",
+                  "탐구는 과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목 등급 반영",
+                ],
               },
               {
                 ...연세대활우,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상 (과탐, 평균이 아닌 개별 과목 등급 반영), 영어 3등급 이내, 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하) 중 1개 과목을 포함하여 1등급 2개 이상, 영어 3등급 이내, 한국사 4등급 이내",
+                  "과학탐구만 반영, 탐구영역은 평균등급이 아닌 개별 과목 등급 반영",
+                ],
               },
               { ...연세대기회균형, admissionQuota: 1, admissionTrack: "자연" },
               { ...연세대논술, admissionQuota: 5, admissionTrack: "자연" },
@@ -2878,15 +3285,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 52,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 72,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 46, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 15, admissionTrack: "인문" },
@@ -2894,8 +3303,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 16,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -2911,15 +3321,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 11,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 7, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 3, admissionTrack: "인문" },
@@ -2927,8 +3339,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -2939,15 +3352,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 11,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 3, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -2955,8 +3370,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -2967,15 +3383,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 3, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 1, admissionTrack: "인문" },
@@ -2983,8 +3401,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 2,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -2995,15 +3414,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -3011,8 +3432,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3023,15 +3445,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 12,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 15,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 9, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "인문" },
@@ -3039,8 +3463,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3051,15 +3476,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 3, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 1, admissionTrack: "인문" },
@@ -3067,8 +3494,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 2,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3079,15 +3507,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 16,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 20,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 12, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 5, admissionTrack: "인문" },
@@ -3095,8 +3525,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3107,15 +3538,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 4, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -3123,8 +3556,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 3,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3135,15 +3569,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 15, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -3151,8 +3587,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3163,15 +3600,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -3179,8 +3618,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3191,15 +3631,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 4, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -3207,8 +3649,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 3,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3219,15 +3662,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -3235,8 +3680,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 3,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3247,15 +3693,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -3263,8 +3711,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3275,15 +3724,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 3, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 1, admissionTrack: "인문" },
@@ -3291,8 +3742,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3308,15 +3760,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 15,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 19,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 11, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 5, admissionTrack: "자연" },
@@ -3325,8 +3779,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3337,15 +3792,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 17,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 23,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 13, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 5, admissionTrack: "자연" },
@@ -3354,8 +3811,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3366,15 +3824,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -3383,8 +3843,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3395,15 +3856,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 11,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 13,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 8, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 3, admissionTrack: "자연" },
@@ -3412,8 +3875,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3424,15 +3888,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 3, admissionTrack: "인문" },
@@ -3440,8 +3906,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3457,15 +3924,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 12,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 15,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 9, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "인문" },
@@ -3473,8 +3942,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3485,15 +3955,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 21,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 25,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 15, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 6, admissionTrack: "인문" },
@@ -3501,8 +3973,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 13,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3513,15 +3986,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 13,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 15,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 10, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "인문" },
@@ -3529,8 +4004,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3541,15 +4017,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 12,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 14,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 9, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "인문" },
@@ -3557,8 +4035,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3574,15 +4053,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -3590,8 +4071,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3602,15 +4084,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -3618,8 +4102,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3630,15 +4115,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 9,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -3646,8 +4133,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3658,15 +4146,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 4,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -3674,8 +4164,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3691,8 +4182,9 @@ export const universityData: UniversityType[] = [
                 ...고려대학우,
                 admissionQuota: 33,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3703,15 +4195,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 14,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 16,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "자연" },
@@ -3734,15 +4228,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 22,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 19,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 17, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 7, admissionTrack: "자연" },
@@ -3751,8 +4247,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 13,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3763,15 +4260,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 15,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 15,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 11, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "자연" },
@@ -3780,8 +4279,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 9,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3792,15 +4292,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -3809,8 +4311,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3821,15 +4324,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 21,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 22,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 16, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 6, admissionTrack: "자연" },
@@ -3838,8 +4343,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 15,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3850,15 +4356,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -3867,8 +4375,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3879,15 +4388,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 34,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 43,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 28, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 14, admissionTrack: "자연" },
@@ -3896,8 +4407,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 13,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3908,8 +4420,9 @@ export const universityData: UniversityType[] = [
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 10, admissionTrack: "자연" },
             ],
@@ -3921,15 +4434,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 4, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 1, admissionTrack: "자연" },
@@ -3938,8 +4453,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 3,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -3950,8 +4466,9 @@ export const universityData: UniversityType[] = [
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 10, admissionTrack: "자연" },
             ],
@@ -3968,15 +4485,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 18,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 5이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 29,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 5이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 15, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 5, admissionTrack: "자연" },
@@ -3994,15 +4513,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -4010,8 +4531,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4022,15 +4544,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -4038,8 +4562,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4050,15 +4575,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 9,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 11,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 7, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 3, admissionTrack: "인문" },
@@ -4066,8 +4593,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4078,15 +4606,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 4, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -4094,8 +4624,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 3,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4106,15 +4637,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 4, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 1, admissionTrack: "인문" },
@@ -4122,8 +4655,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 3,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4134,15 +4668,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 4, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -4150,8 +4686,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 2,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4162,15 +4699,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 4, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -4178,8 +4717,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4190,8 +4730,9 @@ export const universityData: UniversityType[] = [
                 ...고려대특기자,
                 admissionQuota: 40,
                 admissionTrack: "체능",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "최저학력 기준 고려대 수시모집 요강 확인 필요",
+                ],
               },
             ],
           },
@@ -4207,15 +4748,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 12,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 7, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 3, admissionTrack: "자연" },
@@ -4223,8 +4766,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4240,15 +4784,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 20,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 25,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 15, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 7, admissionTrack: "자연" },
@@ -4257,8 +4803,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 11,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4269,15 +4816,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "자연" },
@@ -4286,8 +4835,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 3,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4298,15 +4848,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 16,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 21,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 13, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 5, admissionTrack: "자연" },
@@ -4315,8 +4867,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 9,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4332,8 +4885,9 @@ export const universityData: UniversityType[] = [
                 ...고려대특기자,
                 admissionQuota: 15,
                 admissionTrack: "예능",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4349,15 +4903,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 10, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -4365,8 +4921,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4388,15 +4945,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 12,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 14,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 9, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "인문" },
@@ -4404,8 +4963,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4421,15 +4981,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 12,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 17,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 10, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "자연" },
@@ -4438,8 +5000,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 7,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4450,15 +5013,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 13,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 8, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 3, admissionTrack: "자연" },
@@ -4467,8 +5032,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4479,15 +5045,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 18,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 22,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 13, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 6, admissionTrack: "자연" },
@@ -4496,8 +5064,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 11,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4508,15 +5077,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 12,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 15,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 9, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 4, admissionTrack: "인문" },
@@ -4524,8 +5095,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 6,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4541,23 +5113,26 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 18,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 22,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대고른, admissionQuota: 5, admissionTrack: "인문" },
               {
                 ...고려대논술,
                 admissionQuota: 15,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4573,15 +5148,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 8,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 6, admissionTrack: "자연" },
               { ...고려대고른, admissionQuota: 3, admissionTrack: "자연" },
@@ -4590,8 +5167,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 5,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
-                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                minimumAcademicRequirement: [
+                  "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4614,15 +5192,17 @@ export const universityData: UniversityType[] = [
                 ...고려대학추,
                 admissionQuota: 7,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 중 3개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               {
                 ...고려대학우,
                 admissionQuota: 8,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 5, admissionTrack: "인문" },
               { ...고려대고른, admissionQuota: 2, admissionTrack: "인문" },
@@ -4630,8 +5210,9 @@ export const universityData: UniversityType[] = [
                 ...고려대논술,
                 admissionQuota: 4,
                 admissionTrack: "인문",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(상위 1과목, 사탐/과탐) 4개 영역 등급의 합이 8이내 및 한국사 4등급 이내",
+                ],
               },
             ],
           },
@@ -4647,8 +5228,9 @@ export const universityData: UniversityType[] = [
                 ...고려대학우,
                 admissionQuota: 10,
                 admissionTrack: "자연",
-                minimumAcademicRequirement:
+                minimumAcademicRequirement: [
                   "국어, 수학(미적, 기하, 확통), 영어, 탐구(2과목 평균, 과탐, 서로 다른 분야 응시) 4개 영역 등급의 합이 7이내 및 한국사 4등급 이내",
+                ],
               },
               { ...고려대계적, admissionQuota: 20, admissionTrack: "자연" },
             ],

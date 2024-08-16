@@ -1,5 +1,5 @@
 {
-  "id": "b1b9cd2c-bc56-4e44-8e8b-e4aa09220659",
+  "id": "8cc0134f-c548-43bd-906d-38f75dc6200f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -182,9 +182,10 @@
         },
         "minimumAcademicRequirement": {
           "name": "minimumAcademicRequirement",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "'[]'::jsonb"
         }
       },
       "indexes": {},
@@ -383,6 +384,12 @@
           "primaryKey": false,
           "notNull": false,
           "default": "'university'"
+        },
+        "admissionGuide": {
+          "name": "admissionGuide",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},

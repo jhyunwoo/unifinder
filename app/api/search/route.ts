@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import type { SQL } from "drizzle-orm";
-import { ilike, and, eq, inArray, isNotNull, isNull } from "drizzle-orm";
+import { ne, SQL } from "drizzle-orm";
+import { ilike, and, eq, inArray } from "drizzle-orm";
 import getAdmissionSearchParams from "@/lib/get-search-params";
 import db from "@/db";
 import { admissions, colleges, departments, universities } from "@/db/schema";
@@ -22,9 +22,7 @@ export async function GET(request: Request) {
     filters.push(inArray(admissions.evaluationMethod, evaluationMethod));
   }
   if (academicRequirement) {
-    filters.push(isNotNull(admissions.minimumAcademicRequirement));
-  } else {
-    filters.push(isNull(admissions.minimumAcademicRequirement));
+    filters.push(ne(admissions.minimumAcademicRequirement, []));
   }
   if (university) {
     filters.push(ilike(universities.name, `%${university}%`));
@@ -95,6 +93,22 @@ export async function GET(request: Request) {
       }
     }
   }
+  const academicRequirementFiltered = [];
 
-  return NextResponse.json(requirementFiltered);
+  for (const admission of requirementFiltered) {
+    if (academicRequirement) {
+      if (
+        admission.minimumAcademicRequirement &&
+        admission.minimumAcademicRequirement?.length > 0
+      ) {
+        academicRequirementFiltered.push(admission);
+      }
+    } else {
+      if (admission.minimumAcademicRequirement?.length === 0) {
+        academicRequirementFiltered.push(admission);
+      }
+    }
+  }
+
+  return NextResponse.json(academicRequirementFiltered);
 }
