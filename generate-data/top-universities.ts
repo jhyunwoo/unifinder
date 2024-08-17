@@ -5484,11 +5484,11 @@ export const universityData: UniversityType[] = [
             admission: [{ ...서강대학종일반, admissionQuota: 18 }],
           },
           {
-            name: "미디어&amp;엔터테이먼트학과",
+            name: "미디어&엔터테이먼트학과",
             admission: [{ ...서강대학종일반, admissionQuota: 14 }],
           },
           {
-            name: "아트&amp;테크놀로지학과",
+            name: "아트&테크놀로지학과",
             admission: [{ ...서강대학종일반, admissionQuota: 14 }],
           },
         ],

@@ -11,6 +11,9 @@ import db from "@/db";
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
+    if(process.env.NODE_ENV !== 'development') {
+        return NextResponse.json({ success: false, message: 'This route is only available in development mode' })
+    }
   for (const university of universityData) {
     // eslint-disable-next-line no-await-in-loop -- This is intentional
     const createUniversity = await db
