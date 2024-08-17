@@ -163,7 +163,7 @@ export default function SearchBar() {
         <RecoilSingleSelector
           gridCols={1}
           recoilState={admissionYearState}
-          title="입학년도"
+          title="입학 연도"
           valueList={admissionYears}
         />
         <RecoilSingleSelector
