@@ -14,7 +14,8 @@ type RequirementType =
   | "multiculturalFamily" // 다문화가정
   | "militaryChild" // 군인 자녀
   | "firefighterPoliceChild" // 소방경찰 자녀
-  | "catholicLeaderRecommender"; // 가톨릭 지도자 추천
+  | "catholicLeaderRecommender" // 가톨릭 지도자 추천
+  | "disabledPerson"; // 장애인
 
 type HighSchoolType =
   | "general" // 일반고

@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 유니파인더 UNIFINDER
 
-## Getting Started
+## 1. 프로젝트 소개
+- 특정 조건에 맞는 대학 수시 전형을 검색할 수 있는 웹 서비스
+- 기존에는 대학의 정보를 모아서 볼 수 있는 "대학 어디가"사이트가 있지만 대학 간 비교가 가능할 뿐 전형간 비교는 불가능함 -> 전형 정보를 정규화하여 각 전형을 비교검색할 수 있게 함
 
-First, run the development server:
+## 2. 프로젝트 구조
+- Next.js 14
+- Tailwind CSS
+- Recoil
+- Auth.js
+- SWR
+- PostgreSQL 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 3. 프로젝트 로드맵
+- [x] 서울대, 연세대, 고려대 수시 전형 정보 지원
+- [x] SEO 최적화
+- [ ] 서강대, 성균관대, 한양대 수시 전형 정보 지원
+- [ ] 로그인 기능 및 마이페이지 구현
+- [ ] 수시 전형 및 학과 즐겨찾기 지원
+- [ ] 대학별 전형 비교 기능

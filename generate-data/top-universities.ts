@@ -234,6 +234,7 @@ const 연세대특수교육: AdmissionType = {
     "「장애인복지법」 제32조에 의하여 장애인 등록을 필한 장애정도가 심한 자 또는 「국가유공 자 등 예우 및 지원에 관한 법률」 제4조 등에 의한 상이등급자로 등록(1급부터 6급까지만 인정)되어 있는 자",
   ],
   evaluationMethod: "comprehensive",
+  requirements: ["disabledPerson"],
 };
 
 // 고려대 수시 입학전형
@@ -352,16 +353,7 @@ const 서강대학종일반: AdmissionType = {
   name: "학생부종합 일반",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "autonomous",
-    "special_purpose",
-    "GED",
-    "gifted",
-    "alternative",
-    "overseas",
-    "vocational",
-  ],
+  highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   cautions: ["상급학교 조기입학 자격 부여자도 지원 가능"],
 };
@@ -369,16 +361,7 @@ const 서강대학종기균: AdmissionType = {
   name: "학생부종합 기회균형",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "autonomous",
-    "special_purpose",
-    "GED",
-    "gifted",
-    "alternative",
-    "overseas",
-    "vocational",
-  ],
+  highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   cautions: [
     "농어촌학생 자격으로 지원 불가한 학교: 특목고, 영재학교, 검정고시, 국외고",
@@ -399,16 +382,7 @@ const 서강대학종가치: AdmissionType = {
   name: "학생부종합 서강가치",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "autonomous",
-    "special_purpose",
-    "GED",
-    "gifted",
-    "alternative",
-    "overseas",
-    "vocational",
-  ],
+  highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   requirements: [
     "multiculturalFamily",
@@ -416,28 +390,172 @@ const 서강대학종가치: AdmissionType = {
     "firefighterPoliceChild",
     "catholicLeaderRecommender",
   ],
-  cautions: ["상급학교 조기입학 자격 부여자도 지원 능가능"],
+  cautions: ["상급학교 조기입학 자격 부여자 지원 불가능"],
 };
 const 서강대논술: AdmissionType = {
   name: "논술 일반",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2024.08"],
-  highSchoolType: [
-    "general",
-    "autonomous",
-    "special_purpose",
-    "GED",
-    "gifted",
-    "alternative",
-    "overseas",
-    "vocational",
-  ],
+  highSchoolType: allHighSchools,
   evaluationMethod: "essay",
   minimumAcademicRequirement: [
     "국어, 수학, 영어, 탐구(1과목), 4개 영역 중 3개 영역 등급 합 7이내, 한국사 4등급 이내",
   ],
-  cautions: ["상급학교 조기입학 자격 부여자도 지원 능가능"],
+  cautions: ["상급학교 조기입학 자격 부여자 지원 불가능"],
 };
+
+// 성균관대 수시 입학전형
+const 성균관학종융합: AdmissionType = {
+  name: "학생부종합(융합형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+};
+const 성균관학종탐구: AdmissionType = {
+  name: "학생부종합(탐구형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+};
+const 성균관학종과학인재: AdmissionType = {
+  name: "학생부종합(과학인재)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+};
+const 성균관학종기균: AdmissionType = {
+  name: "학생부종합(기회균형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+  cautions: [
+    "농어촌학생 자격 지원가능 고교 유형 : 일반고, 특성화고, 자율학교, 대안학교(농어촌 지역에 소재한 특수목적고(과학고, 외국어고, 국제고, 예술고, 체육고, 마이스터고) 및 영재학교에 재학한 사실이 있는 자와 고졸 검정고시 합격자는 지원자격을 인정하지 않음)",
+    "지원 자격 수시 모집 요강 확인 필요",
+  ],
+  requirements: [
+    "nationalMeritRecipient",
+    "fiveWestSeaIslands",
+    "ruralFishing",
+    "fromVocationalHighSchool",
+    "basicLivelihoodSecurityRecipients",
+    "singleParentFamily",
+    "disabledPerson",
+  ],
+};
+const 성균관교과: AdmissionType = {
+  name: "학생부교과(학교장추천)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02"],
+  highSchoolType: ["general", "special_purpose", "autonomous"],
+  evaluationMethod: "academic",
+};
+const 성균관논술: AdmissionType = {
+  name: "논술위주(논술우수)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "essay",
+};
+const 성균관특기자: AdmissionType = {
+  name: "실기|실적(예체능 특기자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "talent",
+};
+const 성균관실기: AdmissionType = {
+  name: "실기|실적(예체능 실기우수자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "talent",
+};
+const 성균관학종농어촌: AdmissionType = {
+  name: "학생부종합(농어촌학생)(정원외 농어촌학생 특별전형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: ["general", "autonomous", "vocational"],
+  evaluationMethod: "comprehensive",
+  requirements: ["ruralFishing"],
+};
+const 성균관학종특성화고: AdmissionType = {
+  name: "학생부종합(특성화고)(정원외 특성화고교 졸업자 특별전형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: ["vocational"],
+  evaluationMethod: "comprehensive",
+  requirements: ["fromVocationalHighSchool"],
+  cautions: [
+    "산업수요 맞춤형 마이스터고 제외",
+    "특성화고와 동일한 교육과정을 이수한 일반고(종합고) 출신자 포함",
+  ],
+};
+const 성균관학종이웃사랑: AdmissionType = {
+  name: "학생부종합(이웃사랑)(정원외저소득층특별전형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+  requirements: ["basicLivelihoodSecurityRecipients", "singleParentFamily"],
+  cautions: [
+    "「국민기초생활보장법」 제2조 제1호(수급권자), 제2호(수급자), 제10호(차상위계층)",
+    "「한부모가족지원법」 제5조 및 제5조의2에 따른 지원대상자",
+  ],
+};
+const 성균관학종장애인: AdmissionType = {
+  name: "학생부종합(장애인등)(정원외장애인등대상자특별전형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2024.08"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+  requirements: ["disabledPerson"],
+  cautions: [
+    "「장애인복지법」 제32조에 의하여 장애인 등록이 되어 있는 자(※장애의 정도가 심하지 않은 장애인 포함)",
+    "「장애인 등에 대한 특수교육법」 제15조 제1항의 규정에 따른 대상자",
+    "기타 국가보훈 관계법령*에 의한 상이등급자로 등록되어 있는 자",
+  ],
+};
+const 성균관학종특성화재직: AdmissionType = {
+  name: "학생부종합(특성화고졸재직자)(정원외 특성화고 졸 재직자 특별전형)",
+  admissionYear: 2025,
+  graduationYear: ["before 2024.08"],
+  highSchoolType: ["vocational"],
+  evaluationMethod: "comprehensive",
+  requirements: ["industrialWork", "fromVocationalHighSchool"],
+  cautions: [
+    "지원 시점 기준으로 산업체* 3년 이상 재직자",
+    "특성화고등학교 등을 졸업한 자, 「초·중등교육법 시행령」 제90조 제1항 제10호에 따른 산업수요 맞춤형 고등학교를 졸업한 자, 「초·중등교육법 시행령」 제76조의3 제1호에 따른 일반고등학교에 재학하는 동안 시·도 교육감이 「직업교육훈련촉진법」에 따른 직업 교육훈련기관 중 직업교육훈련위탁기관으로 선정한 기관에서 1년 이상의 직업교육 훈련과정을 이수하고 해당 일반고등학교를 졸업한 자, 「평생교육법」 제31조제2항에 따른 학력인정 평생교육시설 중 특성화고등학교 등에서 제공하는 것과 같은 교육과정을 운영하는 평생 교육시설에서 해당 교육과정을 이수한 자 중 한가지 만족",
+    "산업체 적용 범위 및 재직 기간 산정 상세 사항은 수시모집요강 확인 필요",
+  ],
+};
+const 성균교과최저37: string[] = [
+  "국어(화작, 언매), 수학(미적, 기하, 확통), 영어, 탐구(사탐, 과탐), 탐구(사탐, 과탐) 5개 영역/과목 중 3개 등급합 7등급 이내",
+  "국어, 수학, 영어, 탐구(직업탐구 제외), 한국사 응시 필요",
+  "제2외국어/한문을 탐구영역 1개 과목으로 대체 가능",
+];
+const 성균교과최저36: string[] = [
+  "국어(화작, 언매), 수학(미적, 기하, 확통), 영어, 탐구(사탐, 과탐), 탐구(사탐, 과탐) 5개 영역/과목 중 3개 등급합 6등급 이내",
+  "국어, 수학, 영어, 탐구(직업탐구 제외), 한국사 응시 필요",
+  "제2외국어/한문을 탐구영역 1개 과목으로 대체 가능",
+];
+const 성균논술최저36: string[] = [
+  "국어(화작, 언매), 수학(미적, 기하, 확통), 영어, 탐구(사탐, 과탐), 탐구(사탐, 과탐) 5개 영역/과목 중 3개 등급합 6등급 이내",
+  "국어, 수학, 영어, 탐구(직업탐구 제외), 한국사 응시 필요",
+  "제2외국어/한문을 탐구영역 1개 과목으로 대체 가능",
+];
+const 성균논술최저35: string[] = [
+  "국어(화작, 언매), 수학(미적, 기하, 확통), 영어, 탐구(사탐, 과탐), 탐구(사탐, 과탐) 5개 영역/과목 중 3개 등급합 5등급 이내",
+  "국어, 수학, 영어, 탐구(직업탐구 제외), 한국사 응시 필요",
+  "제2외국어/한문을 탐구영역 1개 과목으로 대체 가능",
+];
+const 성균논술의예: string[] = [
+  "국어(화작, 언매), 수학(미적, 기하, 확통), 영어, 탐구(2개 과목 평균) 5개 영역 중 3개 등급합 4등급 이내",
+  "국어, 수학, 영어, 탐구(직업탐구 제외), 한국사 응시 필요",
+];
 
 export const universityData: UniversityType[] = [
   {
@@ -5637,6 +5755,1091 @@ export const universityData: UniversityType[] = [
             admission: [
               { ...서강대교과지균, admissionQuota: 5 },
               { ...서강대학종일반, admissionQuota: 10 },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "성균관대학교",
+    admissionType: "in-group",
+    educationType: "university",
+    address: "서울특별시 종로구 성균관로 25-2",
+    admissionGuide:
+      "https://admission.skku.edu/common/download.php?fpath=board/20240819155726PHYDSU.pdf&fname=%5B성균관대학교%5D+2025학년도+수시+모집요강.pdf",
+    universityType: "main",
+    symbolImage: "/skku-symbol.svg",
+    id: 5,
+    college: [
+      {
+        name: "문과대학",
+        department: [
+          {
+            name: "인문과학계열",
+            admission: [
+              {
+                ...성균관학종융합,
+                admissionQuota: 34,
+                cautions: [
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                ],
+              },
+              {
+                ...성균관학종기균,
+                admissionQuota: 6,
+                cautions: [
+                  ...(성균관학종기균.cautions ? 성균관학종기균.cautions : []),
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                ],
+              },
+              {
+                ...성균관교과,
+                admissionQuota: 16,
+                cautions: [
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                ],
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 35,
+                cautions: [
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                ],
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "인문과학계열 최대 선발가능인원: 40명",
+                ],
+              },
+              {
+                ...성균관학종특성화고,
+                admissionQuota: 0,
+                cautions: [
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 25명 모집",
+                  "인문과학계열 최대 선발가능인원: 25명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "인문과학계열 최대 선발가능인원: 55명",
+                ],
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 0,
+                cautions: [
+                  "유학·동양학과, 국어국문학과, 영어영문학과, 프랑스어문학과, 중어중문학과, 독어독문학과, 러시아어문학과, 한문학과, 사학과, 철학과, 문헌정보학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 6명 모집",
+                ],
+              },
+            ],
+          },
+          {
+            name: "국어국문학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "프랑스어문학과",
+            admission: [
+              {
+                ...성균관학종탐구,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "독어독문학과",
+            admission: [
+              {
+                ...성균관학종탐구,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "러시아어문학과",
+            admission: [
+              {
+                ...성균관학종탐구,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "한문학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 20,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "사학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "철학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "유학대학",
+        department: [
+          {
+            name: "유학동양학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 20 },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "경제대학",
+        department: [
+          {
+            name: "글로벌경제학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 35 },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저36,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 15,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+            ],
+          },
+          {
+            name: "통계학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "경영대학",
+        department: [
+          {
+            name: "경영학과",
+            admission: [
+              {
+                ...성균관학종융합,
+                admissionQuota: 53,
+              },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 30,
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "경영학과 최대 선발가능인원: 18명",
+                ],
+              },
+              {
+                ...성균관학종특성화고,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 25명 모집",
+                  "경영학과 최대 선발가능인원: 18명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "경영학과 최대 선발가능인원: 36명",
+                ],
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 6명 모집",
+                ],
+              },
+            ],
+          },
+          {
+            name: "글로벌경영학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 33 },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저36,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 15,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "사범대학",
+        department: [
+          {
+            name: "교육학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 15 },
+              {
+                ...성균관교과,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 1,
+              },
+            ],
+          },
+          {
+            name: "한문교육과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 15 },
+              {
+                ...성균관교과,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 1,
+              },
+            ],
+          },
+          {
+            name: "수학교육과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 15 },
+              {
+                ...성균관교과,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 1,
+              },
+            ],
+          },
+          {
+            name: "컴퓨터교육과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 15 },
+              {
+                ...성균관교과,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 1,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "예술대학",
+        department: [
+          {
+            name: "영상학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 12 },
+              {
+                ...성균관교과,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              { ...성균관특기자, admissionQuota: 5 },
+            ],
+          },
+          {
+            name: "의상학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 16 },
+              {
+                ...성균관교과,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "연기예술학과-연기",
+            admission: [{ ...성균관실기, admissionQuota: 20 }],
+          },
+          {
+            name: "연기예술학과-연출",
+            admission: [{ ...성균관실기, admissionQuota: 9 }],
+          },
+          {
+            name: "무용학과-한국무용",
+            admission: [{ ...성균관실기, admissionQuota: 13 }],
+          },
+          {
+            name: "무용학과-발레",
+            admission: [{ ...성균관실기, admissionQuota: 12 }],
+          },
+          {
+            name: "무용학과-컨템포러리댄스",
+            admission: [{ ...성균관실기, admissionQuota: 12 }],
+          },
+        ],
+      },
+      {
+        name: "사회과학대학",
+        department: [
+          {
+            name: "사회과학계열",
+            admission: [
+              {
+                ...성균관학종융합,
+                admissionQuota: 40,
+                cautions: [
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                ],
+              },
+              {
+                ...성균관학종기균,
+                admissionQuota: 5,
+                cautions: [
+                  ...(성균관학종기균.cautions ? 성균관학종기균.cautions : []),
+
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                ],
+              },
+              {
+                ...성균관교과,
+                admissionQuota: 17,
+                cautions: [
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                ],
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 45,
+                cautions: [
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                ],
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "사회과학계열 최대 선발가능인원: 40명",
+                ],
+              },
+              {
+                ...성균관학종특성화고,
+                admissionQuota: 0,
+                cautions: [
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 25명 모집",
+                  "사회과학계열 최대 선발가능인원: 25명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "사회과학계열 최대 선발가능인원: 55명",
+                ],
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 0,
+                cautions: [
+                  "행정학과, 정치외교학과, 미디어커뮤니케이션학과, 사회학과, 사회복지학과, 심리학과, 소비자학과, 아동·청소년학과, 경제학과, 통계학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 6명 모집",
+                ],
+              },
+            ],
+          },
+          {
+            name: "글로벌리더학부",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 20 },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저36,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 15,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+            ],
+          },
+          {
+            name: "사회학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 20,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "사회복지학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 20,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "심리학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 12,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "아동청소년학과",
+            admission: [
+              {
+                ...성균관교과,
+                admissionQuota: 20,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "자연과학대학",
+        department: [
+          {
+            name: "자연과학계열",
+            admission: [
+              {
+                ...성균관학종융합,
+                admissionQuota: 45,
+                cautions: [
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                ],
+              },
+              {
+                ...성균관학종기균,
+                admissionQuota: 3,
+                cautions: [
+                  ...(성균관학종기균.cautions ? 성균관학종기균.cautions : []),
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                ],
+              },
+              {
+                ...성균관교과,
+                admissionQuota: 16,
+                cautions: [
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                ],
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 30,
+                cautions: [
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                ],
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "자연과학계열 최대 선발가능인원: 29명",
+                ],
+              },
+              {
+                ...성균관학종특성화고,
+                admissionQuota: 0,
+                cautions: [
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 25명 모집",
+                  "자연과학계열 최대 선발가능인원: 25명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "자연과학계열 최대 선발가능인원: 55명",
+                ],
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 0,
+                cautions: [
+                  "생명과학과, 수학과, 물리학과, 화학과, 식품생명공학과, 바이오메카트로닉스학과, 융합생명공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 6명 모집",
+                ],
+              },
+            ],
+          },
+          {
+            name: "생명과학과",
+            admission: [
+              { ...성균관학종과학인재, admissionQuota: 5 },
+              {
+                ...성균관교과,
+                admissionQuota: 7,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "수학과",
+            admission: [
+              { ...성균관학종과학인재, admissionQuota: 5 },
+              {
+                ...성균관교과,
+                admissionQuota: 7,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "물리학과",
+            admission: [
+              { ...성균관학종과학인재, admissionQuota: 5 },
+              {
+                ...성균관교과,
+                admissionQuota: 7,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "화학과",
+            admission: [
+              { ...성균관학종과학인재, admissionQuota: 5 },
+              {
+                ...성균관교과,
+                admissionQuota: 7,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "정보통신대학",
+        department: [
+          {
+            name: "전자전기공학부",
+            admission: [
+              {
+                ...성균관학종융합,
+                admissionQuota: 40,
+              },
+              { ...성균관학종과학인재, admissionQuota: 10 },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 30,
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "전자전기공학부 최대 선발가능인원: 29명",
+                ],
+              },
+              {
+                ...성균관학종특성화고,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 25명 모집",
+                  "전자전기공학부 최대 선발가능인원: 17명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "전자전기공학부 최대 선발가능인원: 34명",
+                ],
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 6명 모집",
+                ],
+              },
+            ],
+          },
+          {
+            name: "반도체시스템공학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 10 },
+              { ...성균관학종과학인재, admissionQuota: 30 },
+              {
+                ...성균관논술,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+            ],
+          },
+          {
+            name: "반도체융합공학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 15 },
+              { ...성균관학종과학인재, admissionQuota: 10 },
+              {
+                ...성균관교과,
+                admissionQuota: 6,
+                minimumAcademicRequirement: 성균교과최저36,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "반도체융합공학과 최대 선발가능인원: 6명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "반도체융합공학과 최대 선발가능인원: 6명",
+                ],
+              },
+            ],
+          },
+          {
+            name: "양자정보공학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 13 },
+              { ...성균관학종과학인재, admissionQuota: 5 },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "양자정보공학과 최대 선발가능인원: 2명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "양자정보공학과 최대 선발가능인원: 2명",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "약학대학",
+        department: [
+          {
+            name: "약학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 30 },
+              {
+                ...성균관논술,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 5,
+              },
+            ],
+          },
+        ],
+      },
+      // {
+      //   name: "생명공학대학",
+      //   department: [],
+      // },
+      {
+        name: "성균융합원",
+        department: [
+          {
+            name: "글로벌바이오메디컬공학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 11 },
+              { ...성균관학종과학인재, admissionQuota: 20 },
+              {
+                ...성균관논술,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+            ],
+          },
+          {
+            name: "에너지학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 15 },
+              { ...성균관학종과학인재, admissionQuota: 10 },
+              {
+                ...성균관교과,
+                admissionQuota: 6,
+                minimumAcademicRequirement: 성균교과최저36,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "에너지학과 최대 선발가능인원: 4명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "에너지학과 최대 선발가능인원: 4명",
+                ],
+              },
+            ],
+          },
+          {
+            name: "응용AI융합학부-AI융합운영",
+            admission: [{ ...성균관학종특성화재직, admissionQuota: 95 }],
+          },
+          {
+            name: "응용AI융합학부-산업인공지능",
+            admission: [{ ...성균관학종특성화재직, admissionQuota: 95 }],
+          },
+        ],
+      },
+      {
+        name: "소프트웨어융합대학",
+        department: [
+          {
+            name: "소프트웨어학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 28 },
+              { ...성균관학종과학인재, admissionQuota: 10 },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저36,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "소프트웨어학과 최대 선발가능인원: 8명",
+                ],
+              },
+              {
+                ...성균관학종특성화고,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 25명 모집",
+                  "소프트웨어학과 최대 선발가능인원: 8명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "소프트웨어학과 최대 선발가능인원: 17명",
+                ],
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 0,
+                cautions: [
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 6명 모집",
+                ],
+              },
+            ],
+          },
+          {
+            name: "지능형소프트웨어학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 10 },
+              { ...성균관학종과학인재, admissionQuota: 15 },
+              {
+                ...성균관논술,
+                admissionQuota: 5,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
+            ],
+          },
+          {
+            name: "글로벌융합학부",
+            admission: [
+              {
+                ...성균관학종융합,
+                admissionQuota: 14,
+              },
+              {
+                ...성균관교과,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 8,
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "공과대학",
+        department: [
+          {
+            name: "공학계열",
+            admission: [
+              {
+                ...성균관학종융합,
+                admissionQuota: 100,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                ],
+              },
+              {
+                ...성균관학종과학인재,
+                admissionQuota: 20,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                ],
+              },
+              {
+                ...성균관학종기균,
+                admissionQuota: 4,
+                cautions: [
+                  ...(성균관학종기균.cautions ? 성균관학종기균.cautions : []),
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                ],
+              },
+              {
+                ...성균관교과,
+                admissionQuota: 38,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                ],
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+              {
+                ...성균관논술,
+                admissionQuota: 53,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                ],
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+              {
+                ...성균관학종농어촌,
+                admissionQuota: 0,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 109명 모집",
+                  "공학계열 최대 선발가능인원: 57명",
+                ],
+              },
+              {
+                ...성균관학종특성화고,
+                admissionQuota: 0,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 25명 모집",
+                  "공학계열 최대 선발가능인원: 25명",
+                ],
+              },
+              {
+                ...성균관학종이웃사랑,
+                admissionQuota: 0,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과, 반도체융합공학과, 에너지학과, 양자정보공학과에서 총 55명 모집",
+                  "공학계열 최대 선발가능인원: 55명",
+                ],
+              },
+              {
+                ...성균관학종장애인,
+                admissionQuota: 0,
+                cautions: [
+                  "화학공학/고분자공학부, 신소재공학부, 기계공학부, 건설환경공학부, 시스템경영공학과, 나노공학과",
+                  "인문과학계열, 사회과학계열, 경영학과, 자연과학계열, 전자전기공학부, 공학계열, 소프트웨어학과에서 총 6명 모집",
+                ],
+              },
+            ],
+          },
+          {
+            name: "건축학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 24 },
+              {
+                ...성균관교과,
+                admissionQuota: 18,
+                minimumAcademicRequirement: 성균교과최저37,
+              },
+            ],
+          },
+          {
+            name: "건설환경공학부",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 35 },
+              {
+                ...성균관논술,
+                admissionQuota: 25,
+                minimumAcademicRequirement: 성균논술최저36,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "스포츠과학대학",
+        department: [
+          {
+            name: "스포트과학과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 17 },
+              { ...성균관특기자, admissionQuota: 22 },
+              { ...성균관실기, admissionQuota: 13 },
+            ],
+          },
+        ],
+      },
+      {
+        name: "의과대학",
+        department: [
+          {
+            name: "의예과",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 50 },
+              {
+                ...성균관논술,
+                admissionQuota: 10,
+                minimumAcademicRequirement: 성균논술의예,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "학부대학",
+        department: [
+          {
+            name: "자유전공계열",
+            admission: [
+              { ...성균관학종탐구, admissionQuota: 114 },
+              { ...성균관학종기균, admissionQuota: 6 },
+              { ...성균관교과, admissionQuota: 20 },
+              {
+                ...성균관논술,
+                admissionQuota: 30,
+                minimumAcademicRequirement: 성균논술최저35,
+              },
             ],
           },
         ],
