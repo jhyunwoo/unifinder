@@ -14,7 +14,8 @@ export async function generateStaticParams() {
       collegeName: colleges.name,
     })
     .from(universities)
-    .leftJoin(colleges, eq(colleges.universityId, universities.id));
+    .leftJoin(colleges, eq(colleges.universityId, universities.id))
+    .orderBy(colleges.id);
 }
 
 export function generateMetadata({

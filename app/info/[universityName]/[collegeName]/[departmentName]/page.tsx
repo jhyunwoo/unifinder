@@ -16,7 +16,8 @@ export async function generateStaticParams() {
     })
     .from(universities)
     .leftJoin(colleges, eq(colleges.universityId, universities.id))
-    .leftJoin(departments, eq(departments.collegeId, colleges.id));
+    .leftJoin(departments, eq(departments.collegeId, colleges.id))
+    .orderBy(departments.id);
 }
 
 export function generateMetadata({

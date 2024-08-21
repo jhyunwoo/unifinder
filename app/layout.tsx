@@ -8,9 +8,9 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title:
-    "유니파인더 UNIFINDER | 내가 지원할 수 있는 전형만 검색할 수 있는 수시카드 검색",
+    "유니파인더 UNIFINDER | 서울대, 연세대, 고려대, 서강대, 성균관대, 한양대 수시",
   description:
-    "내가 지원할 수 있는 전형만 검색할 수 있는 수시카드 검색 서비스. 서울대, 연세대, 고려대, 서강대 수시 전형 지원",
+    "서울대, 연세대, 고려대, 서강대, 성균관대, 한양대 수시 전형 지원. 내가 지원할 수 있는 전형만 검색할 수 있는 수시카드 검색 서비스",
   metadataBase: new URL(
     process.env.SITE_URL ? process.env.SITE_URL : "http://localhost:3000",
   ),

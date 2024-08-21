@@ -24,7 +24,7 @@ export default function HomePage() {
           <BuildingLibraryIcon className="size-6" />
         </Link>
       </div>
-      <div>지원 대학: 서울대, 연세대, 고려대, 서강대, 성균관대</div>
+      <div>지원 대학: 서울대, 연세대, 고려대, 서강대, 성균관대, 한양대</div>
 
       <div className="text-sm font-semibold text-red-500">
         주의: 베타버전이므로 데이터가 정확하지 않을 수 있습니다. 각 대학별

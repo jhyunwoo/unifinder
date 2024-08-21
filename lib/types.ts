@@ -1,4 +1,4 @@
-type GraduationYearType = "2025.02" | "before 2024.08";
+type GraduationYearType = "2025.02" | "before 2025.02" | "before 2024.02";
 type RequirementType =
   | "ruralFishing" // 농어촌
   | "nationalMeritRecipient" // 국가유공자

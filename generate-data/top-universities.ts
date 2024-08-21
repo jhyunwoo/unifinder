@@ -69,21 +69,21 @@ const 서울대학생부종합전형: AdmissionType = {
   name: "학생부종합전형(일반전형)",
   admissionYear: 2025,
   highSchoolType: allHighSchools,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   evaluationMethod: "comprehensive",
 };
 const 서울대실기위주전형: AdmissionType = {
   name: "실기위주전형(일반전형)",
   admissionYear: 2025,
   highSchoolType: allHighSchools,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   evaluationMethod: "talent",
 };
 const 서울대기회균형특별전형: AdmissionType = {
   name: "기회균형특별전형(사회통합)",
   admissionYear: 2025,
   highSchoolType: allHighSchools,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   requirements: [
     "ruralFishing", // 농어촌
     "nationalMeritRecipient", // 국가유공자
@@ -126,7 +126,7 @@ const 연세대학추: AdmissionType = {
 const 연세대활우: AdmissionType = {
   name: "학생부종합전형[활동우수형]",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   cautions: ["조기졸업 예정자 및 상급학교 조기진학 허가자는 지원할 수 없음"],
@@ -142,7 +142,7 @@ const 연세대국제국내고: AdmissionType = {
     "alternative",
     "gifted",
   ],
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   cautions: [
     "국내 고등학교는 고교 졸업 학력 인정학교에 한함",
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
@@ -154,7 +154,7 @@ const 연세대국제해외고: AdmissionType = {
   name: "학생부종합전형[국제형-해외고]",
   admissionYear: 2025,
   highSchoolType: ["overseas", "GED", "foreignEducationalInstitutionsInKorea"],
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   cautions: [
     "외국 소재 고등학교 졸업(예정)자는 외국에서 고등학교를 졸업(예정)하고 국내·외에서 12년 학제 이상의 학교 교육과정을 이수한 자를 원칙으로 하며, 해당 국가별 학제 및 학기 등을 고려하여 지원자격을 종합적으로 판단함",
     "특별법에 의한 국제학교 졸업자로서 국내 고등학교 학력 인정을 받은 자",
@@ -167,7 +167,7 @@ const 연세대기회균형: AdmissionType = {
   name: "학생부종합전형[기회균형]",
   admissionYear: 2025,
   highSchoolType: allHighSchools,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   requirements: [
     "ruralFishing", // 농어촌
     "nationalMeritRecipient", // 국가유공자
@@ -187,7 +187,7 @@ const 연세대논술: AdmissionType = {
   name: "논술전형",
   admissionYear: 2025,
   highSchoolType: allHighSchools,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
   ],
@@ -204,7 +204,7 @@ const 연세대특기자국제: AdmissionType = {
     "alternative",
     "gifted",
   ],
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
   ],
@@ -214,7 +214,7 @@ const 연세대특기자체육: AdmissionType = {
   name: "특기자전형[체육인재]",
   admissionYear: 2025,
   highSchoolType: allHighSchools,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   cautions: [
     "지원자격을 충족해야 지원 가능",
     "국내 고등학교는 고교 졸업 학력 인정학교에 한하며, 상급학교 조기진학 허가자는 졸업예정자로 인정하지 않음(지원 불가)",
@@ -228,7 +228,7 @@ const 연세대특수교육: AdmissionType = {
   name: "고른기회전형(특수교육대상자)",
   admissionYear: 2025,
   highSchoolType: allHighSchools,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
     "「장애인복지법」 제32조에 의하여 장애인 등록을 필한 장애정도가 심한 자 또는 「국가유공 자 등 예우 및 지원에 관한 법률」 제4조 등에 의한 상이등급자로 등록(1급부터 6급까지만 인정)되어 있는 자",
@@ -253,7 +253,7 @@ const 고려대학추: AdmissionType = {
 const 고려대학우: AdmissionType = {
   name: "학생부종합(학업우수전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
@@ -263,7 +263,7 @@ const 고려대학우: AdmissionType = {
 const 고려대계적: AdmissionType = {
   name: "학생부종합(계열적합전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원할 수 없음",
@@ -273,7 +273,7 @@ const 고려대계적: AdmissionType = {
 const 고려대고른: AdmissionType = {
   name: "학생부종합(고른기회전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   requirements: [
     "ruralFishing",
@@ -291,7 +291,7 @@ const 고려대고른: AdmissionType = {
 const 고려대재직: AdmissionType = {
   name: "학생부종합(재직자전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: ["vocational"],
   requirements: ["industrialWork", "fromVocationalHighSchool"],
   cautions: [
@@ -303,7 +303,7 @@ const 고려대재직: AdmissionType = {
 const 고려대사국: AdmissionType = {
   name: "학생부종합(사이버국방전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   cautions: [
     "군인사법 제 10조(결격사유등)에 저촉되지 않는 만 16세 이상 25세 이하인 자만 지원 가능",
@@ -318,7 +318,7 @@ const 고려대사국: AdmissionType = {
 const 고려대논술: AdmissionType = {
   name: "논술(논술전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   cautions: [
     "상급학교 조기진학 허가자는 졸업예정자로 인정하지 않으므로 지원 불가",
@@ -328,7 +328,7 @@ const 고려대논술: AdmissionType = {
 const 고려대특기자: AdmissionType = {
   name: "실기/실적(특기자전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "talent",
 };
@@ -352,7 +352,7 @@ const 서강대교과지균: AdmissionType = {
 const 서강대학종일반: AdmissionType = {
   name: "학생부종합 일반",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   cautions: ["상급학교 조기입학 자격 부여자도 지원 가능"],
@@ -360,7 +360,7 @@ const 서강대학종일반: AdmissionType = {
 const 서강대학종기균: AdmissionType = {
   name: "학생부종합 기회균형",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   cautions: [
@@ -381,7 +381,7 @@ const 서강대학종기균: AdmissionType = {
 const 서강대학종가치: AdmissionType = {
   name: "학생부종합 서강가치",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   requirements: [
@@ -395,7 +395,7 @@ const 서강대학종가치: AdmissionType = {
 const 서강대논술: AdmissionType = {
   name: "논술 일반",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "essay",
   minimumAcademicRequirement: [
@@ -408,28 +408,28 @@ const 서강대논술: AdmissionType = {
 const 성균관학종융합: AdmissionType = {
   name: "학생부종합(융합형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
 };
 const 성균관학종탐구: AdmissionType = {
   name: "학생부종합(탐구형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
 };
 const 성균관학종과학인재: AdmissionType = {
   name: "학생부종합(과학인재)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
 };
 const 성균관학종기균: AdmissionType = {
   name: "학생부종합(기회균형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   cautions: [
@@ -456,28 +456,28 @@ const 성균관교과: AdmissionType = {
 const 성균관논술: AdmissionType = {
   name: "논술위주(논술우수)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "essay",
 };
 const 성균관특기자: AdmissionType = {
   name: "실기|실적(예체능 특기자)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "talent",
 };
 const 성균관실기: AdmissionType = {
   name: "실기|실적(예체능 실기우수자)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "talent",
 };
 const 성균관학종농어촌: AdmissionType = {
   name: "학생부종합(농어촌학생)(정원외 농어촌학생 특별전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: ["general", "autonomous", "vocational"],
   evaluationMethod: "comprehensive",
   requirements: ["ruralFishing"],
@@ -485,7 +485,7 @@ const 성균관학종농어촌: AdmissionType = {
 const 성균관학종특성화고: AdmissionType = {
   name: "학생부종합(특성화고)(정원외 특성화고교 졸업자 특별전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: ["vocational"],
   evaluationMethod: "comprehensive",
   requirements: ["fromVocationalHighSchool"],
@@ -497,7 +497,7 @@ const 성균관학종특성화고: AdmissionType = {
 const 성균관학종이웃사랑: AdmissionType = {
   name: "학생부종합(이웃사랑)(정원외저소득층특별전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   requirements: ["basicLivelihoodSecurityRecipients", "singleParentFamily"],
@@ -509,7 +509,7 @@ const 성균관학종이웃사랑: AdmissionType = {
 const 성균관학종장애인: AdmissionType = {
   name: "학생부종합(장애인등)(정원외장애인등대상자특별전형)",
   admissionYear: 2025,
-  graduationYear: ["2025.02", "before 2024.08"],
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
   evaluationMethod: "comprehensive",
   requirements: ["disabledPerson"],
@@ -522,7 +522,7 @@ const 성균관학종장애인: AdmissionType = {
 const 성균관학종특성화재직: AdmissionType = {
   name: "학생부종합(특성화고졸재직자)(정원외 특성화고 졸 재직자 특별전형)",
   admissionYear: 2025,
-  graduationYear: ["before 2024.08"],
+  graduationYear: ["before 2025.02"],
   highSchoolType: ["vocational"],
   evaluationMethod: "comprehensive",
   requirements: ["industrialWork", "fromVocationalHighSchool"],
@@ -556,6 +556,173 @@ const 성균논술의예: string[] = [
   "국어(화작, 언매), 수학(미적, 기하, 확통), 영어, 탐구(2개 과목 평균) 5개 영역 중 3개 등급합 4등급 이내",
   "국어, 수학, 영어, 탐구(직업탐구 제외), 한국사 응시 필요",
 ];
+
+// 한양대 수시 입학전형
+const 한양교과추천: AdmissionType = {
+  name: "학생부교과(추천형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02"],
+  highSchoolType: ["general", "autonomous", "special_purpose"],
+  evaluationMethod: "academic",
+  cautions: [
+    "소속 고등학교장의 추천을 받은 2024년 2월 이후(2024년 2월 졸업자 포함) 국내 정규 고교 졸업(예정)자로서 통산 5개 학기 이상 국내 고교 성적 취득자만 지원 가능",
+    "특성화고, 마이스터고, 예술고, 체육고, 방송통신고, 학력인정고(각종학교 포함), 일반/종합고의 전문계반(학과), 학생부 성적체계가 다른 고교 지원 불가",
+    "2024년 4월 1일자 학교알리미 공시자료 기준, 3학년 재적인원 11% 인원만큼 추천 가능 (학생부종합(추천형)과 추천 인원 별도 산정)",
+    "학교생활기록부에 학교폭력이력이 있는 자에 대해서 학교장 추천 불가",
+  ],
+  minimumAcademicRequirement: [
+    "국어, 수학, 영어, 사탐 또는 과탐(1과목) 중 3개 영역 등급합 7 이내",
+    "국어, 수학, 영어, 사탐 또는 과탐(2과목) 필수 응시",
+  ],
+};
+const 한양학종추천: AdmissionType = {
+  name: "학생부종합(추천형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02"],
+  highSchoolType: [
+    "general",
+    "autonomous",
+    "special_purpose",
+    "gifted",
+    "vocational",
+  ],
+  evaluationMethod: "comprehensive",
+  cautions: [
+    "소속 고등학교장의 추천을 받은 2024년 2월 이후(2024년 2월 졸업자 포함) 국내 정규 고교 졸업(예정)자로서 통산 5개 학기 이상 국내 고교 성적 취득자만 지원 가능",
+    "2024년 4월 1일자 학교알리미 공시자료 기준, 3학년 재적인원 11% 인원만큼 추천 가능 (학생부종합(추천형)과 추천 인원 별도 산정)",
+    "학교생활기록부에 학교폭력이력이 있는 자에 대해서 학교장 추천 불가",
+  ],
+  minimumAcademicRequirement: [
+    "국어, 수학, 영어, 사탐 또는 과탐(1과목) 중 3개 영역 등급합 7 이내",
+    "국어, 수학, 영어, 사탐 또는 과탐(2과목) 필수 응시",
+  ],
+};
+const 한양학종서류: AdmissionType = {
+  name: "학생부종합(서류형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+  cautions: [
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+const 한양학종면접: AdmissionType = {
+  name: "학생부종합(면접형)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+  cautions: [
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+const 한양학종고른: AdmissionType = {
+  name: "학생부종합(고른기회)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "comprehensive",
+  cautions: [
+    "특목고, 영재고, 외국고, 검정고시 졸업자는 농어촌으로 지원할 수 없음",
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+  requirements: [
+    "basicLivelihoodSecurityRecipients",
+    "lowerMiddleClass",
+    "nationalMeritRecipient",
+    "ruralFishing",
+    "fromVocationalHighSchool",
+    "disabledPerson",
+  ],
+};
+const 한양학종특성화재직: AdmissionType = {
+  name: "학생부종합(특성화고졸재직자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: ["vocational"],
+  evaluationMethod: "comprehensive",
+  requirements: ["industrialWork"],
+  cautions: [
+    "지원 자격 수시 모집요강 확인 필요",
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+
+const 한양논술: AdmissionType = {
+  name: "논술",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "essay",
+  cautions: [
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+const 한양실기미술: AdmissionType = {
+  name: "실기|실적(미술특기자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: [
+    "general",
+    "autonomous",
+    "special_purpose",
+    "gifted",
+    "vocational",
+  ],
+  evaluationMethod: "talent",
+  cautions: [
+    "학교생활기록부가 없는 자(검정고시 출신자, 외국고교 졸업자 등)는 지원할 수 없음",
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+const 한양실기음악: AdmissionType = {
+  name: "실기|실적(음악특기자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "talent",
+  cautions: [
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+const 한양실기체육: AdmissionType = {
+  name: "실기|실적(체육특기자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "talent",
+  cautions: [
+    "체육특기자 심사년도를 기준으로 3년 이내 대한체육회 산하 가맹 경기단체가 경기실적 증명서를 발급 하는 전국 또는 국제 규모대회 1, 2, 3위 입상자",
+    "단체 구기종목은 대한체육회 산하 가맹 경기단체가 경기실적 증명서를 발급하는 전국 또는 국제 규모의 대회에서 고등학교 재학 중 8강 이내에 입상한 자",
+    "국가대표, 청소년대표, 유스대표에 선발된 자",
+    "고교 재학 중 또는 졸업 후 대한체육회 산하 가맹 경기단체의 실적을 보유한 자",
+    "한양대학교는 본교 예체능계열 지원자·재학생의 도핑(Doping : 경기능력 향상을 위해 호르몬제, 신경안정제, 흥분제 등의 약물을 복용하는 행위)을 엄격히 금지함",
+    "한양대학교 체육특기자 수시전형에 지원 후 프로배구·농구 신인 드래프트에 신청하여 선발 시 이중 등록으로 합격이 취소될 수 있음",
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+const 한양실기연기: AdmissionType = {
+  name: "실기|실적(연기특기자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "talent",
+  cautions: [
+    "국내 공인된 영화, TV 등 기타 매체에서 활동한 경력자 혹은 수상자",
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
+const 한양실기무용: AdmissionType = {
+  name: "실기|실적(무용특기자)",
+  admissionYear: 2025,
+  graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
+  highSchoolType: allHighSchools,
+  evaluationMethod: "talent",
+  cautions: [
+    "학교생활기록부 기재사항 중 학교 폭력 관련 내용이 확인될 경우 전형관리위원회의 심의 결과에 따라 불이익이 있을 수 있음",
+  ],
+};
 
 export const universityData: UniversityType[] = [
   {
@@ -5769,7 +5936,7 @@ export const universityData: UniversityType[] = [
     admissionGuide:
       "https://admission.skku.edu/common/download.php?fpath=board/20240819155726PHYDSU.pdf&fname=%5B성균관대학교%5D+2025학년도+수시+모집요강.pdf",
     universityType: "main",
-    symbolImage: "/skku-symbol.svg",
+    symbolImage: "/skku.svg",
     id: 5,
     college: [
       {
@@ -6840,6 +7007,698 @@ export const universityData: UniversityType[] = [
                 admissionQuota: 30,
                 minimumAcademicRequirement: 성균논술최저35,
               },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "한양대학교",
+    admissionType: "in-group",
+    educationType: "university",
+    address: "서울특별시 성동구 왕십리로 222",
+    admissionGuide:
+      "https://go.hanyang.ac.kr/file/download.do?menu=mojib&file_no=341&type=pdf",
+    universityType: "main",
+    symbolImage: "/hyu-symbol.svg",
+    id: 6,
+    college: [
+      {
+        name: "공과대학",
+        department: [
+          {
+            name: "건축학부(5년제)",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 10, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "건축공학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 9, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "건설환경공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 6, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 11, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "도시공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "자원환경공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 10, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "융합전자공학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 13, admissionTrack: "자연" },
+              { ...한양학종추천, admissionQuota: 8, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 21, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 9, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "컴퓨터소프트웨어학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 13, admissionTrack: "자연" },
+              { ...한양학종추천, admissionQuota: 11, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 25, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 6, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 10, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "정보시스템학과(상경)",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "상경" },
+              { ...한양학종서류, admissionQuota: 6, admissionTrack: "상경" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "상경" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "전기생체공학부(전기공학)",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 13, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "전기생체공학부(바이오메디컬공학)",
+            admission: [
+              { ...한양학종추천, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "신소재공학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 8, admissionTrack: "자연" },
+              { ...한양학종추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 14, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 7, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "화학공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 7, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "생명공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 9, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "유기나노공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "에너지공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 10, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "기계공학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 17, admissionTrack: "자연" },
+              { ...한양학종추천, admissionQuota: 11, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 29, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 9, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "원자력공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 9, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "산업공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 7, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "미래자동차공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "데이터사이언스학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "반도체공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 6, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 22, admissionTrack: "자연" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "의과대학",
+        department: [
+          {
+            name: "의예과",
+            admission: [
+              {
+                ...한양학종추천,
+                admissionQuota: 25,
+                admissionTrack: "자연",
+                minimumAcademicRequirement: [
+                  "국어, 수학, 여어, 사탐 또는 과탐(1과목) 중 3개 영역 등급합 4이내",
+                  "국어, 수학, 영어, 사탐 또는 과탐(2과목) 필수 응시",
+                ],
+              },
+              { ...한양학종서류, admissionQuota: 30, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 3, admissionTrack: "자연" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "간호대학",
+        department: [
+          {
+            name: "간호학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 13, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "자연" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "인문대학",
+        department: [
+          {
+            name: "국어국문학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 7, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "중어중문학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 6, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 13, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "영어영문학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 7, admissionTrack: "인문" },
+              { ...한양학종추천, admissionQuota: 5, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 11, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "독어독문학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 13, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "사학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 6, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "철학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 3, admissionTrack: "인문" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "사회과학대학",
+        department: [
+          {
+            name: "정치외교학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "사회학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "미디어커뮤니케이션학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "인문" },
+              { ...한양학종추천, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 9, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "관광학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "인문" },
+              { ...한양학종추천, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 5, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "인문" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "자연과학대학",
+        department: [
+          {
+            name: "수학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 8, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 8, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "물리학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 10, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "화학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 6, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 13, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "생명과학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 6, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 12, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 5, admissionTrack: "자연" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "정책과학대학",
+        department: [
+          {
+            name: "정책학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 9, admissionTrack: "인문" },
+              { ...한양학종추천, admissionQuota: 10, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 24, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "행정학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 12, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "경제금융대학",
+        department: [
+          {
+            name: "경제금융학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 9, admissionTrack: "상경" },
+              { ...한양학종추천, admissionQuota: 8, admissionTrack: "상경" },
+              { ...한양학종서류, admissionQuota: 19, admissionTrack: "상경" },
+              { ...한양학종고른, admissionQuota: 4, admissionTrack: "상경" },
+              { ...한양논술, admissionQuota: 9, admissionTrack: "상경" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "경영대학",
+        department: [
+          {
+            name: "경영학부",
+            admission: [
+              { ...한양교과추천, admissionQuota: 26, admissionTrack: "상경" },
+              { ...한양학종추천, admissionQuota: 18, admissionTrack: "상경" },
+              { ...한양학종서류, admissionQuota: 60, admissionTrack: "상경" },
+              { ...한양학종고른, admissionQuota: 5, admissionTrack: "상경" },
+              { ...한양논술, admissionQuota: 12, admissionTrack: "상경" },
+            ],
+          },
+          {
+            name: "파이낸스경영학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 5, admissionTrack: "상경" },
+              { ...한양학종추천, admissionQuota: 5, admissionTrack: "상경" },
+              { ...한양학종서류, admissionQuota: 9, admissionTrack: "상경" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "상경" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "상경" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "사범대학",
+        department: [
+          {
+            name: "교육학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "인문" },
+              { ...한양학종면접, admissionQuota: 6, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "교육공학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "인문" },
+              { ...한양학종면접, admissionQuota: 6, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "국어교육과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "인문" },
+              { ...한양학종면접, admissionQuota: 8, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "영어교육과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 4, admissionTrack: "인문" },
+              { ...한양학종면접, admissionQuota: 6, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "수학교육과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양학종면접, admissionQuota: 3, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 3, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "응용미술교육과",
+            admission: [
+              { ...한양실기미술, admissionQuota: 22, admissionTrack: "예체능" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "생활과학대학",
+        department: [
+          {
+            name: "의류학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 9, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 12, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+          {
+            name: "식품영양학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 8, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 11, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "실내건축디자인학과",
+            admission: [
+              { ...한양교과추천, admissionQuota: 10, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 13, admissionTrack: "인문" },
+              { ...한양학종고른, admissionQuota: 2, admissionTrack: "인문" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "음악대학",
+        department: [
+          // {
+          //   name: "성악과",
+          //   admission: [],
+          // },
+          // {
+          //   name: "작곡과",
+          //   admission: [],
+          // },
+          {
+            name: "피아노과",
+            admission: [
+              { ...한양실기음악, admissionQuota: 9, admissionTrack: "예체능" },
+            ],
+          },
+          {
+            name: "관현악과",
+            admission: [
+              {
+                ...한양실기음악,
+                admissionQuota: 10,
+                admissionTrack: "예체능",
+                cautions: [
+                  ...(한양실기음악.cautions ? 한양실기음악.cautions : []),
+                  "플루트1, 오보에1, 클라리넷1, 바순1, 색소폰1, 호른1, 트럼펫1, 테너트롬본1, 튜바1, 타악기1",
+                ],
+              },
+            ],
+          },
+          {
+            name: "국악과",
+            admission: [
+              {
+                ...한양실기음악,
+                admissionQuota: 31,
+                admissionTrack: "예체능",
+                cautions: [
+                  ...(한양실기음악.cautions ? 한양실기음악.cautions : []),
+                  "가야금4, 거문고3, 대금4, 피리3, 해금4, 아쟁2, 타악2, 성악4(경서도소리1, 판소리3), 작곡3, 이론2",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "예술체육대학",
+        department: [
+          {
+            name: "스포트산업과학부(소포츠매니지먼트)",
+            admission: [
+              { ...한양학종서류, admissionQuota: 7, admissionTrack: "예체능" },
+              {
+                ...한양실기체육,
+                admissionQuota: 6,
+                admissionTrack: "예체능",
+                cautions: [
+                  ...(한양실기체육.cautions ? 한양실기체육.cautions : []),
+                  "농구(남): 가드 3명",
+                  "배구(남): 리베로 1명, 라이트 1명, 세터 1명",
+                ],
+              },
+            ],
+          },
+          {
+            name: "스포트산업과학부(스포츠사이언스)",
+            admission: [
+              { ...한양학종서류, admissionQuota: 6, admissionTrack: "예체능" },
+              {
+                ...한양실기체육,
+                admissionQuota: 6,
+                admissionTrack: "예체능",
+                cautions: [
+                  ...(한양실기체육.cautions ? 한양실기체육.cautions : []),
+                  "농구(남): 포워드 2명, 센터 1명",
+                  "배구(남): 레프트 1명, 센터 1명, 리베로 1명",
+                ],
+              },
+            ],
+          },
+          {
+            name: "연극영화학과(영화)",
+            admission: [
+              { ...한양학종서류, admissionQuota: 7, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 4, admissionTrack: "인문" },
+            ],
+          },
+          // {
+          //   name: "연극영화학과(연출및스탭)",
+          //   admission: [],
+          // },
+          {
+            name: "연극영화학과(연기)",
+            admission: [
+              { ...한양실기연기, admissionQuota: 2, admissionTrack: "예체능" },
+            ],
+          },
+          {
+            name: "무용학과",
+            admission: [
+              { ...한양실기무용, admissionQuota: 31, admissionTrack: "예체능" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "국제대학",
+        department: [
+          {
+            name: "국제학부",
+            admission: [
+              { ...한양학종추천, admissionQuota: 9, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 27, admissionTrack: "인문" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "산업융합대학",
+        department: [
+          {
+            name: "산업융합학부",
+            admission: [
+              {
+                ...한양학종특성화재직,
+                admissionQuota: 154,
+                admissionTrack: "자연/인문",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "한양인터칼리지대학",
+        department: [
+          {
+            name: "한양인터칼리지학부(자연)",
+            admission: [
+              {
+                ...한양교과추천,
+                admissionQuota: 40,
+                admissionTrack: "인문",
+                cautions: [
+                  ...(한양교과추천.cautions ? 한양교과추천.cautions : []),
+                  "한양인터칼리지학부(자연), 한양인터칼리지학부(인문)에서 총 40명 선발",
+                ],
+              },
+              { ...한양학종추천, admissionQuota: 30, admissionTrack: "자연" },
+              { ...한양학종서류, admissionQuota: 45, admissionTrack: "자연" },
+              { ...한양학종고른, admissionQuota: 5, admissionTrack: "자연" },
+              { ...한양논술, admissionQuota: 35, admissionTrack: "자연" },
+            ],
+          },
+          {
+            name: "한양인터칼리지학부(인문)",
+            admission: [
+              {
+                ...한양교과추천,
+                admissionQuota: 40,
+                admissionTrack: "인문",
+                cautions: [
+                  ...(한양교과추천.cautions ? 한양교과추천.cautions : []),
+                  "한양인터칼리지학부(자연), 한양인터칼리지학부(인문)에서 총 40명 선발",
+                ],
+              },
+              { ...한양학종추천, admissionQuota: 10, admissionTrack: "인문" },
+              { ...한양학종서류, admissionQuota: 10, admissionTrack: "인문" },
+              { ...한양논술, admissionQuota: 15, admissionTrack: "인문" },
             ],
           },
         ],

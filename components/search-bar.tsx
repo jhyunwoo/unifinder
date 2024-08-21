@@ -59,7 +59,8 @@ const graduationYears: { name: string; value: GraduationYearType }[] = [
     name: "2025년 2월",
     value: "2025.02",
   },
-  { name: "2024년 8월 이전", value: "before 2024.08" },
+  { name: "2024년 2월 ~ 2025년 2월 이전", value: "before 2025.02" },
+  { name: "2024년 2월 이전", value: "before 2024.02" },
 ];
 const academicRequirements: { name: string; value: boolean }[] = [
   { name: "최저 있음", value: true },
@@ -81,6 +82,7 @@ const requirementList: { name: string; value: RequirementType }[] = [
   { name: "군인 자녀", value: "militaryChild" },
   { name: "소방경찰 자녀", value: "firefighterPoliceChild" },
   { name: "가톨릭 지도자 추천", value: "catholicLeaderRecommender" },
+  { name: "장애인", value: "disabledPerson" },
 ];
 
 export default function SearchBar() {

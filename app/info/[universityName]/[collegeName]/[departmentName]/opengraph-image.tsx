@@ -33,6 +33,7 @@ export default async function UniversityImage({
       // ImageResponse JSX element
       <div tw="bg-white flex flex-col w-full h-full items-center justify-center">
         <div tw={"flex items-center pt-48"}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="150"
             src={`${process.env.SITE_URL}${universityData.symbolImage}`}

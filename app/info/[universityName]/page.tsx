@@ -8,7 +8,10 @@ import BackPageButton from "@/components/back-page-button";
 import InfoTitle from "@/components/info-title";
 
 export async function generateStaticParams() {
-  return db.select({ universityName: universities.name }).from(universities);
+  return db
+    .select({ universityName: universities.name })
+    .from(universities)
+    .orderBy(universities.id);
 }
 
 export function generateMetadata({
