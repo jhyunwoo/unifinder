@@ -326,7 +326,7 @@ const 고려대논술: AdmissionType = {
   evaluationMethod: "essay",
 };
 const 고려대특기자: AdmissionType = {
-  name: "실기/실적(특기자전형)",
+  name: "실기|실적(특기자전형)",
   admissionYear: 2025,
   graduationYear: ["2025.02", "before 2025.02", "before 2024.02"],
   highSchoolType: allHighSchools,
@@ -3389,6 +3389,13 @@ export const universityData: UniversityType[] = [
                 ...연세대국제국내고,
                 admissionQuota: 40,
                 admissionTrack: "국제",
+                minimumAcademicRequirement: [
+                  "국어, 수학, 탐구(사회탐구/과학탐구) 영역에서 국어, 수학 중 1개 과목을 포함하여 2개 과목 등급 합 5 이내",
+                  "영어 2등급 이내",
+                  "한국사 4등급 이내",
+                  "수학: 공통+선택(확률과 통계, 미적분, 기하 중 택 1), 탐구: 사회탐구/과학탐구",
+                  "탐구영역은 평균등급이 아닌 개별 과목등급 기준으로 최저학력기준을 인정함",
+                ],
               },
               {
                 ...연세대국제해외고,
