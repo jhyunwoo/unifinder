@@ -1,7 +1,6 @@
 import { and, eq } from "drizzle-orm";
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import db from "@/db";
 import { admissions, colleges, departments, universities } from "@/db/schema";
 import BackPageButton from "@/components/back-page-button";
@@ -20,30 +19,33 @@ export async function generateStaticParams() {
     .orderBy(departments.id);
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     universityName: string;
     collegeName: string;
     departmentName: string;
-  };
-}): Metadata {
+  }>;
+}) {
+  const { universityName, departmentName } = await params;
   return {
-    title: `유니파인더 | ${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.departmentName)}`,
-    description: `${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.departmentName)} 정보`,
+    title: `유니파인더 | ${decodeURIComponent(universityName)} ${decodeURIComponent(departmentName)}`,
+    description: `${decodeURIComponent(universityName)} ${decodeURIComponent(departmentName)} 정보`,
   };
 }
 
 export default async function AdmissionPage({
   params,
 }: {
-  params: {
+  params: Promise<{
     universityName: string;
     collegeName: string;
     departmentName: string;
-  };
+  }>;
 }) {
+  const { universityName, collegeName, departmentName } = await params;
+
   const admissionData = await db
     .select({
       id: admissions.id,
@@ -59,27 +61,26 @@ export default async function AdmissionPage({
     .leftJoin(admissions, eq(admissions.departmentId, departments.id))
     .where(
       and(
-        eq(universities.name, decodeURIComponent(params.universityName)),
-        eq(colleges.name, decodeURIComponent(params.collegeName)),
-        eq(departments.name, decodeURIComponent(params.departmentName)),
+        eq(universities.name, decodeURIComponent(universityName)),
+        eq(colleges.name, decodeURIComponent(collegeName)),
+        eq(departments.name, decodeURIComponent(departmentName)),
       ),
     );
   return (
     <div>
       <BackPageButton
-        href={`/info/${params.universityName}/${params.collegeName}`}
-        name={`${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)}`}
+        href={`/info/${universityName}/${collegeName}`}
+        name={`${decodeURIComponent(universityName)} ${decodeURIComponent(collegeName)}`}
       />
       <InfoTitle>
-        {decodeURIComponent(params.universityName)}{" "}
-        {decodeURIComponent(params.collegeName)}{" "}
-        {decodeURIComponent(params.departmentName)}
+        {decodeURIComponent(universityName)} {decodeURIComponent(collegeName)}{" "}
+        {decodeURIComponent(departmentName)}
       </InfoTitle>
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {admissionData.map((data) => (
           <Link
             className="flex h-32 items-center gap-2 rounded-lg bg-white p-2 transition hover:shadow-lg"
-            href={`/info/${params.universityName}/${params.collegeName}/${params.departmentName}/${data.name}`}
+            href={`/info/${universityName}/${collegeName}/${departmentName}/${data.name}`}
             key={data.id}
           >
             {data.universitySymbol ? (

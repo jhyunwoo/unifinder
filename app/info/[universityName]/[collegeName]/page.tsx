@@ -1,5 +1,4 @@
 import { and, eq } from "drizzle-orm";
-import type { Metadata } from "next";
 import db from "@/db";
 import { colleges, departments, universities } from "@/db/schema";
 import InfoItem from "@/components/info-item";
@@ -18,22 +17,25 @@ export async function generateStaticParams() {
     .orderBy(colleges.id);
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { universityName: string; collegeName: string };
-}): Metadata {
+  params: Promise<{ universityName: string; collegeName: string }>;
+}) {
+  const { universityName, collegeName } = await params;
   return {
-    title: `유니파인더 | ${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)}`,
-    description: `${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)} 정보`,
+    title: `유니파인더 | ${decodeURIComponent(universityName)} ${decodeURIComponent(collegeName)}`,
+    description: `${decodeURIComponent(universityName)} ${decodeURIComponent(collegeName)} 정보`,
   };
 }
 
 export default async function CollegePage({
   params,
 }: {
-  params: { universityName: string; collegeName: string };
+  params: Promise<{ universityName: string; collegeName: string }>;
 }) {
+  const { universityName, collegeName } = await params;
+
   const departmentData = await db
     .select({
       id: departments.id,
@@ -47,25 +49,24 @@ export default async function CollegePage({
     .leftJoin(departments, eq(departments.collegeId, colleges.id))
     .where(
       and(
-        eq(universities.name, decodeURIComponent(params.universityName)),
-        eq(colleges.name, decodeURIComponent(params.collegeName)),
+        eq(universities.name, decodeURIComponent(universityName)),
+        eq(colleges.name, decodeURIComponent(collegeName)),
       ),
     );
   return (
     <div className="flex w-full flex-col">
       <BackPageButton
-        href={`/info/${params.universityName}`}
-        name={decodeURIComponent(params.universityName)}
+        href={`/info/${universityName}`}
+        name={decodeURIComponent(universityName)}
       />
       <InfoTitle>
-        {decodeURIComponent(params.universityName)}{" "}
-        {decodeURIComponent(params.collegeName)}
+        {decodeURIComponent(universityName)} {decodeURIComponent(collegeName)}
       </InfoTitle>
 
       <InfoListHolder>
         {departmentData.map((data) => (
           <InfoItem
-            href={`/info/${params.universityName}/${params.collegeName}/${data.name}`}
+            href={`/info/${universityName}/${collegeName}/${data.name}`}
             key={data.id}
             name={data.name}
             symbolImage={data.universitySymbol}

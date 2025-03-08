@@ -1,5 +1,4 @@
 import { eq } from "drizzle-orm";
-import type { Metadata } from "next";
 import db from "@/db";
 import { colleges, universities } from "@/db/schema";
 import InfoItem from "@/components/info-item";
@@ -14,22 +13,25 @@ export async function generateStaticParams() {
     .orderBy(universities.id);
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { universityName: string };
-}): Metadata {
+  params: Promise<{ universityName: string }>;
+}) {
+  const { universityName } = await params;
+
   return {
-    title: `유니파인더 | ${decodeURIComponent(params.universityName)}`,
-    description: `${decodeURIComponent(params.universityName)} 정보`,
+    title: `유니파인더 | ${decodeURIComponent(universityName)}`,
+    description: `${decodeURIComponent(universityName)} 정보`,
   };
 }
 
 export default async function CollegePage({
   params,
 }: {
-  params: { universityName: string };
+  params: Promise<{ universityName: string }>;
 }) {
+  const { universityName } = await params;
   const collegeData = await db
     .select({
       id: colleges.id,
@@ -39,16 +41,16 @@ export default async function CollegePage({
     })
     .from(universities)
     .leftJoin(colleges, eq(colleges.universityId, universities.id))
-    .where(eq(universities.name, decodeURIComponent(params.universityName)));
+    .where(eq(universities.name, decodeURIComponent(universityName)));
 
   return (
     <div className="flex flex-col">
       <BackPageButton href="/info" name="대학 목록" />
-      <InfoTitle>{decodeURIComponent(params.universityName)}</InfoTitle>
+      <InfoTitle>{decodeURIComponent(universityName)}</InfoTitle>
       <InfoListHolder>
         {collegeData.map((data) => (
           <InfoItem
-            href={`/info/${params.universityName}/${data.name}`}
+            href={`/info/${universityName}/${data.name}`}
             key={data.id}
             name={data.name}
             symbolImage={data.universitySymbol}

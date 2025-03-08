@@ -1,6 +1,5 @@
 import { and, eq } from "drizzle-orm";
 import Image from "next/image";
-import type { Metadata } from "next";
 import { admissions, colleges, departments, universities } from "@/db/schema";
 import db from "@/db";
 import getEvaluationMethodName from "@/lib/get-evaluation-method-name";
@@ -22,51 +21,56 @@ export async function generateStaticParams() {
     .orderBy(admissions.id);
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     universityName: string;
     collegeName: string;
     departmentName: string;
     admissionName: string;
-  };
-}): Metadata {
+  }>;
+}) {
+  const { universityName, collegeName, departmentName, admissionName } =
+    await params;
+
   return {
-    title: `유니파인더 | ${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)} ${decodeURIComponent(params.departmentName)} ${decodeURIComponent(params.admissionName)}`,
-    description: `${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.departmentName)} ${decodeURIComponent(params.admissionName)} 정보`,
+    title: `유니파인더 | ${decodeURIComponent(universityName)} ${decodeURIComponent(collegeName)} ${decodeURIComponent(departmentName)} ${decodeURIComponent(admissionName)}`,
+    description: `${decodeURIComponent(universityName)} ${decodeURIComponent(departmentName)} ${decodeURIComponent(admissionName)} 정보`,
   };
 }
 
 export default async function AdmissionPage({
   params,
 }: {
-  params: {
+  params: Promise<{
     universityName: string;
     collegeName: string;
     departmentName: string;
     admissionName: string;
-  };
+  }>;
 }) {
+  const { universityName, collegeName, departmentName, admissionName } =
+    await params;
   const universityData = await db.query.universities.findFirst({
-    where: eq(universities.name, decodeURIComponent(params.universityName)),
+    where: eq(universities.name, decodeURIComponent(universityName)),
   });
   const collegeData = await db.query.colleges.findFirst({
     where: and(
       eq(colleges.universityId, Number(universityData?.id)),
-      eq(colleges.name, decodeURIComponent(params.collegeName)),
+      eq(colleges.name, decodeURIComponent(collegeName)),
     ),
   });
   const departmentData = await db.query.departments.findFirst({
     where: and(
       eq(departments.collegeId, Number(collegeData?.id)),
-      eq(departments.name, decodeURIComponent(params.departmentName)),
+      eq(departments.name, decodeURIComponent(departmentName)),
     ),
   });
   const admissionData = await db.query.admissions.findFirst({
     where: and(
       eq(admissions.departmentId, Number(departmentData?.id)),
-      eq(admissions.name, decodeURIComponent(params.admissionName)),
+      eq(admissions.name, decodeURIComponent(admissionName)),
     ),
   });
 
@@ -74,8 +78,8 @@ export default async function AdmissionPage({
     return (
       <div className="flex flex-col gap-2">
         <BackPageButton
-          href={`/info/${params.universityName}/${params.collegeName}/${params.departmentName}`}
-          name={`${decodeURIComponent(params.universityName)} ${decodeURIComponent(params.collegeName)} ${decodeURIComponent(params.departmentName)}`}
+          href={`/info/${universityName}/${collegeName}/${departmentName}`}
+          name={`${decodeURIComponent(universityName)} ${decodeURIComponent(collegeName)} ${decodeURIComponent(departmentName)}`}
         />
         <div className="flex w-full gap-4">
           {universityData.symbolImage ? (

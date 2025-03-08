@@ -15,13 +15,15 @@ export const contentType = "image/png";
 export default async function UniversityImage({
   params,
 }: {
-  params: { universityName: string };
+  params: Promise<{ universityName: string }>;
 }) {
+  const { universityName } = await params;
+
   const squareRoundB = fetch(
     new URL("./../NanumSquareOTF_acB.otf", import.meta.url),
   ).then((res) => res.arrayBuffer());
   const universityData = await fetch(
-    `${process.env.SITE_URL}/api/university?universityName=${params.universityName}`,
+    `${process.env.SITE_URL}/api/university?universityName=${universityName}`,
   ).then((res) => res.json());
 
   return new ImageResponse(
@@ -33,10 +35,10 @@ export default async function UniversityImage({
           <img
             height="150"
             src={`${process.env.SITE_URL}${universityData.symbolImage}`}
-            alt={decodeURIComponent(params.universityName)}
+            alt={decodeURIComponent(universityName)}
           />
           <div tw="text-8xl font-extrabold ml-8">
-            {decodeURIComponent(params.universityName)}
+            {decodeURIComponent(universityName)}
           </div>
         </div>
         <div tw={"flex items-center ml-auto px-48 pt-24"}>
